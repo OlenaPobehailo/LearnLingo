@@ -30,7 +30,7 @@ const Header = () => {
     try {
       const { email, password } = formData;
 
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       // console.log(user);
     } catch (error) {
       console.log(error.message);
@@ -41,7 +41,7 @@ const Header = () => {
     try {
       const { email, password } = formData;
 
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       // console.log(user);
     } catch (error) {
       console.log(error.message);

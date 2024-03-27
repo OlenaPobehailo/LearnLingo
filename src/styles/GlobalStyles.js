@@ -4,25 +4,25 @@ export const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'Roboto-Regular';
-    src: url('../../public/fonts/Roboto-Regular.ttf') ;
+    src: url('/public/fonts/Roboto-Regular.ttf') ;
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: 'Roboto-Medium';
-    src: url('../../public/fonts/Roboto-Medium.ttf') ;
+    src: url('/fonts/Roboto-Medium.ttf') ;
     font-weight: 500;
     font-style: normal;
   }
   @font-face {
     font-family: 'Roboto-Bold';
-    src: url('../../public/fonts/Roboto-Bold.ttf') ;
+    src: url('/fonts/Roboto-Bold.ttf') ;
     font-weight: 700;
     font-style: normal;
   }
   @font-face {
     font-family: 'Roboto-Italic';
-    src: url('../../public/fonts/Roboto-Italic.ttf') ;
+    src: url('/fonts/Roboto-Italic.ttf') ;
     font-weight: 400;
     font-style: italic;
   }
