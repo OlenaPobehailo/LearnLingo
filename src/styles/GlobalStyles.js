@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'Roboto-Regular';
-    src: url('/public/fonts/Roboto-Regular.ttf') ;
+    src: url('/fonts/Roboto-Regular.ttf') ;
     font-weight: 400;
     font-style: normal;
   }
@@ -39,9 +39,9 @@ export const GlobalStyles = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
 
 
-  --medium: 'Roboto-Medium';
-  --bold: 'Roboto-Bold';
-  --italic: 'Roboto-Italic'
+  --medium: 'Roboto-Medium', sans-serif;
+  --bold: 'Roboto-Bold', sans-serif;
+  --italic: 'Roboto-Italic', sans-serif
 
 
 }
@@ -66,7 +66,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: "Roboto-Regular";
+  font-family: "Roboto-Regular", sans-serif;
   font-size: 16px;
 }
 

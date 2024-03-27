@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <StyledLogo>
       <img src={LogoImage} alt="header logo" width={28} height={28} />
-      LearnLingo
+      <span>LearnLingo</span>
     </StyledLogo>
   );
 };

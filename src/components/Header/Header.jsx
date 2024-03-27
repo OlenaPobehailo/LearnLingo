@@ -5,33 +5,43 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
+  updateProfile,
+  // onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../../firebase-config";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import AuthForm from "../AuthForm/AuthForm";
 import Logo from "../Logo/Logo";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Header = () => {
   const [modalType, setModalType] = useState(null);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
 
+  const [authUser] = useAuthState(auth);
+
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, []);
+    setUser(authUser);
+  }, [authUser]);
 
   const register = async (formData) => {
     try {
-      const { email, password } = formData;
+      const { email, password, name } = formData;
 
-      await createUserWithEmailAndPassword(auth, email, password);
-      // console.log(user);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log(user);
+
+      await updateProfile(user, { displayName: name });
+      console.log(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -57,8 +67,8 @@ const Header = () => {
       <StyledHeader>
         <Logo />
         <NavigationMenu />
-        <AuthButtons openModal={openModal} logout={logout} />
-        {user ? user.email : "Not Logged In"}
+        <AuthButtons openModal={openModal} logout={logout} user={user} />
+        {/* {user ? user.email : "Not Logged In"} */}
       </StyledHeader>
 
       {modalType === "register" && (

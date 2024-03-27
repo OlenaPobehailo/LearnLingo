@@ -7,14 +7,18 @@ export const StyledHeader = styled.div`
   right: 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   height: 10vh;
   padding: 0 4%;
 
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
-
+  /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25); */
   z-index: 1;
-`;
 
+  a {
+    line-height: 1.25;
+    color: #121417;
+  }
+
+`;
