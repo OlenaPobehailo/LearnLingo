@@ -10,6 +10,7 @@ import {
 import { auth } from "../../../firebase-config";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import AuthButtons from "../AuthButtons/AuthButtons";
+import AuthForm from "../AuthForm/AuthForm";
 
 const Header = () => {
   const [modalType, setModalType] = useState(null);
@@ -17,10 +18,10 @@ const Header = () => {
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
 
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  // const [registerEmail, setRegisterEmail] = useState("");
+  // const [registerPassword, setRegisterPassword] = useState("");
+  // const [loginEmail, setLoginEmail] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
 
   const [user, setUser] = useState({});
 
@@ -29,14 +30,12 @@ const Header = () => {
       setUser(currentUser);
     });
   }, []);
-  
-  const register = async () => {
+
+  const register = async (formData) => {
     try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
+      const { email, password } = formData;
+
+      const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log(user);
       console.log(user.user);
     } catch (error) {
@@ -44,13 +43,11 @@ const Header = () => {
     }
   };
 
-  const login = async () => {
+  const login = async (formData) => {
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
+      const { email, password } = formData;
+
+      const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
       console.log(user.user.email);
     } catch (error) {
@@ -72,61 +69,28 @@ const Header = () => {
 
       {modalType === "register" && (
         <Modal onClose={closeModal}>
-          <h2>Register</h2>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              register();
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={(event) => {
-                setRegisterEmail(event.target.value);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={(event) => {
-                setRegisterPassword(event.target.value);
-              }}
-            />
-            <button type="submit" onClick={register}>
-              Register
-            </button>
-          </form>
+          <AuthForm
+            title="Register"
+            fields={[
+              { name: "name", type: "text", placeholder: "Name" },
+              { name: "email", type: "email", placeholder: "Email" },
+              { name: "password", type: "password", placeholder: "Password" },
+            ]}
+            onSubmit={register}
+          />
         </Modal>
       )}
 
       {modalType === "login" && (
         <Modal onClose={closeModal}>
-          <h2>Login</h2>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              login();
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={(event) => {
-                setLoginEmail(event.target.value);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={(event) => {
-                setLoginPassword(event.target.value);
-              }}
-            />
-            <button type="submit" onClick={login}>
-              Login
-            </button>
-          </form>
+          <AuthForm
+            title="Login"
+            fields={[
+              { name: "email", type: "email", placeholder: "Email" },
+              { name: "password", type: "password", placeholder: "Password" },
+            ]}
+            onSubmit={login}
+          />
         </Modal>
       )}
     </>

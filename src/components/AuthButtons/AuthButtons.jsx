@@ -19,7 +19,6 @@ const AuthButtons = ({ openModal, logout }) => {
 export default AuthButtons;
 
 AuthButtons.propTypes = {
-    openModal: PropTypes.func.isRequired,
-    logout: PropTypes.func.isRequired,
-  };
-  
+  openModal: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+};
