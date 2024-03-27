@@ -2,6 +2,32 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../../public/fonts/Roboto-Regular.ttf') ;
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../../public/fonts/Roboto-Medium.ttf') ;
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../../public/fonts/Roboto-Bold.ttf') ;
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../../public/fonts/Roboto-Italic.ttf') ;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+
 :root {
   font-weight: 400;
 
@@ -11,6 +37,13 @@ export const GlobalStyles = createGlobalStyle`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  --medium: 'Roboto-Medium';
+  --bold: 'Roboto-Bold';
+  --italic: 'Roboto-Italic'
+
+
 }
  
  *, *::before, *::after {
@@ -33,6 +66,8 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
 }
 
 

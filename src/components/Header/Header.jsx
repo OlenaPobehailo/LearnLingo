@@ -11,19 +11,14 @@ import { auth } from "../../../firebase-config";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import AuthForm from "../AuthForm/AuthForm";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const [modalType, setModalType] = useState(null);
+  const [user, setUser] = useState({});
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
-
-  // const [registerEmail, setRegisterEmail] = useState("");
-  // const [registerPassword, setRegisterPassword] = useState("");
-  // const [loginEmail, setLoginEmail] = useState("");
-  // const [loginPassword, setLoginPassword] = useState("");
-
-  const [user, setUser] = useState({});
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -36,8 +31,7 @@ const Header = () => {
       const { email, password } = formData;
 
       const user = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(user);
-      console.log(user.user);
+      // console.log(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -48,8 +42,7 @@ const Header = () => {
       const { email, password } = formData;
 
       const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
-      console.log(user.user.email);
+      // console.log(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -62,6 +55,7 @@ const Header = () => {
   return (
     <>
       <StyledHeader>
+        <Logo />
         <NavigationMenu />
         <AuthButtons openModal={openModal} logout={logout} />
         {user ? user.email : "Not Logged In"}

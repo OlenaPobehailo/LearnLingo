@@ -12,6 +12,7 @@ function App() {
         <Route index element={<HomePage />} />
 
         <Route path="teachers" element={<TeachersPage />} />
+
         <Route path="favorites" element={<FavoritesPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />

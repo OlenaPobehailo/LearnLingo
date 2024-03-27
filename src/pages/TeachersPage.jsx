@@ -8,12 +8,12 @@ const TeachersPage = () => {
   useEffect(() => {
     const db = getDatabase();
     const teachersRef = ref(db, "teachers");
-    console.log(db);
-    console.log(teachersRef);
+    // console.log(db);
+    // console.log(teachersRef);
 
     get(teachersRef)
       .then((snapshot) => {
-        console.log(snapshot);
+        // console.log(snapshot);
 
         if (snapshot.exists()) {
           setTeachers(Object.values(snapshot.val()));
