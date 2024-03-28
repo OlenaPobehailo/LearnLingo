@@ -94,9 +94,7 @@ const Header = () => {
       <StyledHeader>
         <Logo />
         <NavigationMenu />
-        {user && (
           <AuthButtons openModal={openModal} logout={logout} user={authUser} />
-        )}
       </StyledHeader>
 
       {modalType === "register" && (

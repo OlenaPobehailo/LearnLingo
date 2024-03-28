@@ -52,10 +52,10 @@ export const Button = styled.button`
   border-radius: 12px;
 
   background: #f4c550;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease;
 
   &:hover,
   &:focus {
-    background: #ffdc86;
+    background-color: #ffdc86;
   }
 `;

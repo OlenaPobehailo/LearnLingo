@@ -38,10 +38,12 @@ export const GlobalStyles = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
+  --regular: 'Roboto-Regular', sans-serif;
   --medium: 'Roboto-Medium', sans-serif;
   --bold: 'Roboto-Bold', sans-serif;
-  --italic: 'Roboto-Italic', sans-serif
+  --italic: 'Roboto-Italic', sans-serif;
+
+  --dash-length: 15px;
 
 
 }
@@ -66,7 +68,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 

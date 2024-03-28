@@ -1,11 +1,14 @@
-import { StyledCommonWrapper } from "../styles/CommonStyled"
+import Info from "../components/Home/Info/Info";
+import Hero from "../components/Home/Hero";
+import { StyledCommonWrapper } from "../styles/CommonStyled";
 
 const HomePage = () => {
   return (
     <StyledCommonWrapper>
-      HomePage
+      <Hero />
+      <Info/>
     </StyledCommonWrapper>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

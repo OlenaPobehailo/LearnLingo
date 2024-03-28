@@ -8,8 +8,9 @@ export const NavMenu = styled.nav`
 
   gap: 28px;
 
-  @media (max-width: 768px) {
+  margin: auto;
 
+  @media (max-width: 768px) {
   }
 
   @media (max-width: 480px) {

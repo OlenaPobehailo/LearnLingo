@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase-config";
-import { FlexWrapper, Login, Logout, Register } from "./AuthButtons.styled";
-// import { LoginIcon } from "../../assets/icons";
+import {
+  FlexWrapper,
+  Greeting,
+  Login,
+  Logout,
+  Register,
+} from "./AuthButtons.styled";
 
 const AuthButtons = ({ openModal, logout }) => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   console.log(user);
+
+  if (loading) return null;
 
   return (
     <div>
@@ -36,10 +43,10 @@ const AuthButtons = ({ openModal, logout }) => {
       )}
 
       {user && (
-        <div>
-          <span>Hello, {user.displayName}!</span>
-          <Logout onClick={logout}>logout</Logout>
-        </div>
+        <FlexWrapper>
+          <Greeting>Hello, {user.displayName}!</Greeting>
+          <Logout onClick={logout}>Log Out</Logout>
+        </FlexWrapper>
       )}
     </div>
   );
