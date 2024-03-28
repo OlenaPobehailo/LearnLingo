@@ -13,7 +13,26 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalContent = styled.div`
+  position: relative;
+  width: 565px;
+  padding: 64px;
+  border-radius: 30px;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
