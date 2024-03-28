@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PropTypes } from "prop-types";
 import { StyledHeader } from "./Header.styled";
 import Modal from "../Modal/Modal";
 import {
@@ -14,19 +15,43 @@ import AuthButtons from "../AuthButtons/AuthButtons";
 import AuthForm from "../AuthForm/AuthForm";
 import Logo from "../Logo/Logo";
 import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
+
+const registrationForm = {
+  title: "Registration",
+  text: "Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information",
+  fields: [
+    { name: "name", type: "text", placeholder: "Name" },
+    { name: "email", type: "email", placeholder: "Email" },
+    { name: "password", type: "password", placeholder: "Password" },
+  ],
+  button: "Sign Up",
+};
+
+const loginForm = {
+  title: "Log In",
+  text: "Welcome back! Please enter your credentials to access your account and continue your search for a teacher.",
+  fields: [
+    { name: "email", type: "email", placeholder: "Email" },
+    { name: "password", type: "password", placeholder: "Password" },
+  ],
+  button: "Log In",
+};
 
 const Header = () => {
   const [modalType, setModalType] = useState(null);
-  const [user, setUser] = useState(null);
+  const [authUser, setAuthUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
 
-  const [authUser] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    setUser(authUser);
-  }, [authUser]);
+    setAuthUser(user);
+    setLoading(false);
+  }, [user]);
 
   const register = async (formData) => {
     try {
@@ -62,24 +87,25 @@ const Header = () => {
     await signOut(auth);
   };
 
+  if (loading) return null;
+
   return (
     <>
       <StyledHeader>
         <Logo />
         <NavigationMenu />
-        <AuthButtons openModal={openModal} logout={logout} user={user} />
-        {/* {user ? user.email : "Not Logged In"} */}
+        {user && (
+          <AuthButtons openModal={openModal} logout={logout} user={authUser} />
+        )}
       </StyledHeader>
 
       {modalType === "register" && (
         <Modal onClose={closeModal}>
           <AuthForm
-            title="Register"
-            fields={[
-              { name: "name", type: "text", placeholder: "Name" },
-              { name: "email", type: "email", placeholder: "Email" },
-              { name: "password", type: "password", placeholder: "Password" },
-            ]}
+            title={registrationForm.title}
+            text={registrationForm.text}
+            fields={registrationForm.fields}
+            button={registrationForm.button}
             onSubmit={register}
           />
         </Modal>
@@ -88,11 +114,10 @@ const Header = () => {
       {modalType === "login" && (
         <Modal onClose={closeModal}>
           <AuthForm
-            title="Login"
-            fields={[
-              { name: "email", type: "email", placeholder: "Email" },
-              { name: "password", type: "password", placeholder: "Password" },
-            ]}
+            title={loginForm.title}
+            text={loginForm.text}
+            fields={loginForm.fields}
+            button={loginForm.button}
             onSubmit={login}
           />
         </Modal>
@@ -102,3 +127,7 @@ const Header = () => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  user: PropTypes.object,
+};

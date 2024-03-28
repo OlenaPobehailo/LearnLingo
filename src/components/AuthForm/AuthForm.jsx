@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Button, Input, Text, Title } from "./AuthForm.styled";
 
-const AuthForm = ({ title, fields, onSubmit }) => {
+const AuthForm = ({ title, fields, text, button, onSubmit }) => {
   const [formValues, setFormValues] = useState({});
 
   const handleChange = (e, fieldName) => {
@@ -15,9 +16,10 @@ const AuthForm = ({ title, fields, onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>{title}</h2>
+      <Title>{title}</Title>
+      <Text>{text}</Text>
       {fields.map((field) => (
-        <input
+        <Input
           key={field.name}
           type={field.type}
           placeholder={field.placeholder}
@@ -25,7 +27,7 @@ const AuthForm = ({ title, fields, onSubmit }) => {
           onChange={(e) => handleChange(e, field.name)}
         />
       ))}
-      <button type="submit">{title}</button>
+      <Button type="submit">{button}</Button>
     </form>
   );
 };
@@ -33,7 +35,9 @@ const AuthForm = ({ title, fields, onSubmit }) => {
 export default AuthForm;
 
 AuthForm.propTypes = {
-  title: PropTypes.string.isRequired,
-  fields: PropTypes.array,
-  onSubmit: PropTypes.func,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  fields: PropTypes.array.isRequired,
+  button: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
