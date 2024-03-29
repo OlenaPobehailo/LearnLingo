@@ -2,6 +2,7 @@ import { get, getDatabase, ref } from "firebase/database";
 import { StyledCommonWrapper } from "../styles/CommonStyled";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { TeachersPageWrapper } from "./Page.styled";
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState(null);
@@ -29,18 +30,20 @@ const TeachersPage = () => {
 
   return (
     <StyledCommonWrapper>
-      {teachers ? (
-        teachers.map((teacher, index) => (
-          <div key={index}>
-            <Card teacher={teacher} />
-            {/* <p>
+      <TeachersPageWrapper>
+        {teachers ? (
+          teachers.map((teacher, index) => (
+            <div key={index}>
+              <Card teacher={teacher} />
+              {/* <p>
               {teacher.name} {teacher.surname}
             </p> */}
-          </div>
-        ))
-      ) : (
-        <p>No data available</p>
-      )}
+            </div>
+          ))
+        ) : (
+          <p>No data available</p>
+        )}
+      </TeachersPageWrapper>
     </StyledCommonWrapper>
   );
 };

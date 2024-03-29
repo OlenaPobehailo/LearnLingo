@@ -9,3 +9,9 @@ export const PageWrapper = styled.div`
     padding: 0 10px;
   }
 `;
+
+export const TeachersPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

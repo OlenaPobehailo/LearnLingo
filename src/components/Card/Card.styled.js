@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const CardWrapper = styled.div`
   display: flex;
   gap: 48px;
+  width: 1184px;
   padding: 24px;
+
+  outline: 1px solid red;
 `;
 
 export const Avatar = styled.img`
