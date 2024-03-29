@@ -13,6 +13,8 @@ export const Avatar = styled.img`
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  padding: 14px;
+  border: 3px solid #fbe9ba;
 `;
 
 export const RightPart = styled.div`
@@ -25,9 +27,13 @@ export const CardHeader = styled.div`
   width: 100%;
 
   margin-bottom: 8px;
+
+  & span {
+    color: #38cd3e;
+  }
 `;
 
-export const Languages = styled.p`
+export const Text = styled.p`
   color: #8a8a89;
 
   font-family: var(--medium);
@@ -80,9 +86,38 @@ export const Teacher = styled.p`
   line-height: 1;
 `;
 
-export const TeacherInfo = styled.p``;
+export const TeacherInfoWrapper = styled.div`
+  margin-bottom: 16px;
+`;
 
-export const Experience = styled.p``;
+export const TeacherInfo = styled.p`
+  display: flex;
+  margin-bottom: 8px;
+  color: #8a8a89;
+
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+
+  & span {
+    color: #121417;
+  }
+`;
+
+export const Languages = styled.ul`
+  display: flex;
+`;
+
+export const Experience = styled.p`
+  margin-bottom: 32px;
+
+  font-family: var(--regular);
+  color: #121417;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+`;
 
 export const BookLesson = styled.button`
   display: flex;
@@ -107,5 +142,76 @@ export const BookLesson = styled.button`
   &:hover,
   &:focus {
     background-color: #ffdc86;
+  }
+`;
+
+export const Reviews = styled.ul``;
+
+export const Review = styled.li`
+  margin-bottom: 32px;
+`;
+
+export const Reviewer = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+export const ReviewerAvatar = styled.div`
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: lightblue;
+`;
+
+export const ReviewerName = styled.div`
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #8a8a89;
+`;
+
+export const ReviewerRating = styled.p`
+  display: flex;
+  gap: 8px;
+  color: #121417;
+
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+`;
+
+export const ReviewComment = styled.p`
+  color: #121417;
+
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+`;
+
+export const Levels = styled.ul`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+`;
+
+export const Level = styled.li`
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  border-radius: 35px;
+  padding: 8px 12px;
+
+  color: #121417;
+
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.143;
+
+  &:first-child {
+    background: #f4c550;
   }
 `;
