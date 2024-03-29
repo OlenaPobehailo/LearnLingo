@@ -1,4 +1,11 @@
-import { Button, Image, Main, StyledHero, Text, Title } from "./Hero.styled";
+import {
+  Image,
+  Main,
+  StyledHero,
+  StyledLink,
+  Text,
+  Title,
+} from "./Hero.styled";
 
 const Hero = () => {
   return (
@@ -12,7 +19,7 @@ const Hero = () => {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </Text>
-        <Button>Get started</Button>
+        <StyledLink to="/teachers">Get started</StyledLink>
       </Main>
       <Image src="/public/images/hero/block-1.jpg" alt="" />
     </StyledHero>
