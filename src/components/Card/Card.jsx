@@ -2,6 +2,7 @@ import { PropTypes } from "prop-types";
 import {
   Avatar,
   Book,
+  BookLesson,
   CardHeader,
   CardWrapper,
   Experience,
@@ -16,6 +17,8 @@ import {
 
 const Card = ({ teacher }) => {
   console.log(teacher);
+  const { reviews, levels } = teacher;
+
   return (
     <CardWrapper>
       <div>
@@ -109,6 +112,26 @@ const Card = ({ teacher }) => {
         </TeacherInfo>
         <Experience>{teacher.experience}</Experience>
 
+        <ul>
+          {reviews.map((review, index) => (
+            <li key={index}>
+              <p>Reviewer: {review.reviewer_name}</p>
+              <p>Rating: {review.reviewer_rating}</p>
+              <p>{review.comment}</p>
+            </li>
+          ))}
+        </ul>
+
+        <ul>
+          {levels.map((level, index) => (
+            <li key={index}>
+              <span>{level}</span>
+              
+            </li>
+          ))}
+        </ul>
+
+        <BookLesson>Book trial lesson</BookLesson>
 
 
       </RightPart>

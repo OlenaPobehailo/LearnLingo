@@ -80,3 +80,29 @@ export const Teacher = styled.p`
 export const TeacherInfo = styled.p``;
 
 export const Experience = styled.p``;
+
+export const BookLesson = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  padding: 16px 48px;
+  min-width: 232px;
+  height: 60px;
+
+  background: #f4c550;
+  color: #121417;
+
+  font-family: var(--bold);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.56;
+
+  transition: background-color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #ffdc86;
+  }
+`;
