@@ -109,6 +109,21 @@ export const Languages = styled.ul`
   display: flex;
 `;
 
+export const ReadMoreButton = styled.button`
+  margin-bottom: 32px;
+  
+  background-color: transparent;
+  color: #121417;
+  border: none;
+
+  font-family: var(--medium);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+`;
+
 export const Experience = styled.p`
   margin-bottom: 32px;
 
