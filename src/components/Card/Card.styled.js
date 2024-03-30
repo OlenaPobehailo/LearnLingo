@@ -75,6 +75,13 @@ export const Book = styled.svg`
   align-self: center;
 `;
 
+export const FavoriteButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+`;
+
 export const Teacher = styled.p`
   margin-bottom: 32px;
 
@@ -90,7 +97,7 @@ export const TeacherInfoWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-export const TeacherInfo = styled.p`
+export const TeacherInfo = styled.div`
   display: flex;
   margin-bottom: 8px;
   color: #8a8a89;
@@ -111,7 +118,7 @@ export const Languages = styled.ul`
 
 export const ReadMoreButton = styled.button`
   margin-bottom: 32px;
-  
+
   background-color: transparent;
   color: #121417;
   border: none;
@@ -160,53 +167,14 @@ export const BookLesson = styled.button`
   }
 `;
 
-export const Reviews = styled.ul``;
-
-export const Review = styled.li`
+export const Reviews = styled.ul`
   margin-bottom: 32px;
 `;
 
-export const Reviewer = styled.div`
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 16px;
-`;
+// export const Review = styled.li`
+//   margin-bottom: 32px;
 
-export const ReviewerAvatar = styled.div`
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: lightblue;
-`;
-
-export const ReviewerName = styled.div`
-  font-family: var(--medium);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #8a8a89;
-`;
-
-export const ReviewerRating = styled.p`
-  display: flex;
-  gap: 8px;
-  color: #121417;
-
-  font-family: var(--medium);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28571;
-`;
-
-export const ReviewComment = styled.p`
-  color: #121417;
-
-  font-family: var(--medium);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-`;
+// `;
 
 export const Levels = styled.ul`
   display: flex;
@@ -228,5 +196,6 @@ export const Level = styled.li`
 
   &:first-child {
     background: #f4c550;
+    border: 1px solid #f4c550;
   }
 `;

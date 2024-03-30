@@ -2,10 +2,12 @@ import { get, getDatabase, ref } from "firebase/database";
 import { StyledCommonWrapper } from "../styles/CommonStyled";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import { TeachersPageWrapper } from "./Page.styled";
+import { LoadMoreButton, TeacherPageWrapper, TeachersList } from "./Page.styled";
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState(null);
+  const [totalTeachers, setTotalTeachers] = useState(0);
+  const [visibleTeachers, setVisibleTeachers] = useState(4);
 
   useEffect(() => {
     const db = getDatabase();
@@ -15,10 +17,10 @@ const TeachersPage = () => {
 
     get(teachersRef)
       .then((snapshot) => {
-        // console.log(snapshot);
-
         if (snapshot.exists()) {
-          setTeachers(Object.values(snapshot.val()));
+          const teacherData = Object.values(snapshot.val());
+          setTotalTeachers(teacherData.length);
+          setTeachers(teacherData.slice(0, visibleTeachers));
         } else {
           console.log("No data available");
         }
@@ -26,24 +28,27 @@ const TeachersPage = () => {
       .catch((error) => {
         console.error("Error getting data:", error);
       });
-  }, []);
+  }, [visibleTeachers]);
+
+  const handleLoadMore = () => {
+    setVisibleTeachers((prevVisibleTeachers) => prevVisibleTeachers + 4); // Increase the number of visible cards
+  };
 
   return (
     <StyledCommonWrapper>
-      <TeachersPageWrapper>
-        {teachers ? (
-          teachers.map((teacher, index) => (
-            <div key={index}>
-              <Card teacher={teacher} />
-              {/* <p>
-              {teacher.name} {teacher.surname}
-            </p> */}
-            </div>
-          ))
-        ) : (
-          <p>No data available</p>
+      <TeacherPageWrapper>
+        <TeachersList>
+          {teachers &&
+            teachers.map((teacher, index) => (
+              <div key={index}>
+                <Card teacher={teacher} />
+              </div>
+            ))}
+        </TeachersList>
+        {totalTeachers > visibleTeachers && (
+          <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
         )}
-      </TeachersPageWrapper>
+      </TeacherPageWrapper>
     </StyledCommonWrapper>
   );
 };
