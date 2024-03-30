@@ -24,7 +24,7 @@ const CardHeader = ({ teacher }) => {
           favorite.name === teacher.name && favorite.surname === teacher.surname
       )
     );
-    console.log(teacher);
+    // console.log(teacher);
   }, [teacher]);
 
   const handleFavoriteClick = () => {
