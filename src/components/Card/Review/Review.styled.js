@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// export const StyledReview = styled.div`
-//   margin-bottom: 32px;
-// `;
-
 export const Reviewer = styled.div`
   display: flex;
   gap: 12px;

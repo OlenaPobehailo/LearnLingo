@@ -64,23 +64,6 @@ export const Item = styled.div`
   }
 `;
 
-export const Info = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const Heart = styled.svg``;
-
-export const Book = styled.svg`
-  align-self: center;
-`;
-
-export const FavoriteButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-`;
 
 export const Teacher = styled.p`
   margin-bottom: 32px;
