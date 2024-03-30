@@ -18,9 +18,16 @@ import {
 import { useState } from "react";
 import Review from "./Review";
 import CardHeader from "./CardHeader";
+import Modal from "../../components/Modal";
+import BookTrialLesson from "../../components/BookTrialLesson";
 
 const Card = ({ teacher }) => {
   const [showMore, setShowMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBookTrialLesson = () => {
+    setIsModalOpen(true);
+  };
 
   // console.log(teacher);
   const { reviews, levels, languages } = teacher;
@@ -32,62 +39,71 @@ const Card = ({ teacher }) => {
   // console.log(reviews);
 
   return (
-    <CardWrapper>
-      <div>
-        <Avatar src={teacher.avatar_url} alt="" />
-      </div>
-      <RightPart>
-        <CardHeader teacher={teacher} />
+    <>
+      <CardWrapper>
+        <div>
+          <Avatar src={teacher.avatar_url} alt="" />
+        </div>
+        <RightPart>
+          <CardHeader teacher={teacher} />
 
-        <Teacher>
-          {teacher.name} {teacher.surname}
-        </Teacher>
+          <Teacher>
+            {teacher.name} {teacher.surname}
+          </Teacher>
 
-        <TeacherInfoWrapper>
-          <TeacherInfo>
-            Speaks:&nbsp;
-            <Languages>
-              {languages.map((language, index) => (
-                <li key={index}>
-                  <span>{language}</span>
-                  {index < languages.length - 1 && ","}
-                </li>
-              ))}
-            </Languages>
-          </TeacherInfo>
-          <TeacherInfo>
-            Lesson Info:&nbsp; <span>{teacher.lesson_info}</span>
-          </TeacherInfo>
-          <TeacherInfo>
-            Conditions:&nbsp; <span>{teacher.conditions}</span>
-          </TeacherInfo>
-        </TeacherInfoWrapper>
+          <TeacherInfoWrapper>
+            <TeacherInfo>
+              Speaks:&nbsp;
+              <Languages>
+                {languages.map((language, index) => (
+                  <li key={index}>
+                    <span>{language}</span>
+                    {index < languages.length - 1 && ","}
+                  </li>
+                ))}
+              </Languages>
+            </TeacherInfo>
+            <TeacherInfo>
+              Lesson Info:&nbsp; <span>{teacher.lesson_info}</span>
+            </TeacherInfo>
+            <TeacherInfo>
+              Conditions:&nbsp; <span>{teacher.conditions}</span>
+            </TeacherInfo>
+          </TeacherInfoWrapper>
 
-        <ReadMoreButton onClick={toggleShowMore}>Read more</ReadMoreButton>
+          <ReadMoreButton onClick={toggleShowMore}>Read more</ReadMoreButton>
 
-        {showMore && (
-          <>
-            <Experience>{teacher.experience}</Experience>
+          {showMore && (
+            <>
+              <Experience>{teacher.experience}</Experience>
 
-            <Reviews>
-              {reviews.map((review, index) => (
-                <Review key={index} review={review} />
-              ))}
-            </Reviews>
-          </>
-        )}
+              <Reviews>
+                {reviews.map((review, index) => (
+                  <Review key={index} review={review} />
+                ))}
+              </Reviews>
+            </>
+          )}
 
-        <Levels>
-          {levels.map((level, index) => (
-            <Level key={index}>
-              <span>#{level}</span>
-            </Level>
-          ))}
-        </Levels>
+          <Levels>
+            {levels.map((level, index) => (
+              <Level key={index}>
+                <span>#{level}</span>
+              </Level>
+            ))}
+          </Levels>
 
-        <BookLesson>Book trial lesson</BookLesson>
-      </RightPart>
-    </CardWrapper>
+          <BookLesson onClick={handleBookTrialLesson}>
+            Book trial lesson
+          </BookLesson>
+        </RightPart>
+      </CardWrapper>
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <BookTrialLesson teacher={teacher} />
+        </Modal>
+      )}
+    </>
   );
 };
 
