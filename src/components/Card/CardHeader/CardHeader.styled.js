@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -41,7 +41,13 @@ export const Info = styled.div`
   justify-content: space-between;
 `;
 
-export const Heart = styled.svg``;
+export const Heart = styled.svg`
+  ${(props) =>
+    props.isFavorite &&
+    css`
+      fill: red;
+    `}
+`;
 
 export const Book = styled.svg`
   align-self: center;

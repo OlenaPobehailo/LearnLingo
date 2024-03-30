@@ -22,14 +22,14 @@ import CardHeader from "./CardHeader";
 const Card = ({ teacher }) => {
   const [showMore, setShowMore] = useState(false);
 
-  console.log(teacher);
+  // console.log(teacher);
   const { reviews, levels, languages } = teacher;
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
 
-  console.log(reviews);
+  // console.log(reviews);
 
   return (
     <CardWrapper>
