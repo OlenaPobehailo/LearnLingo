@@ -15,6 +15,7 @@ import AuthButtons from "../AuthButtons/AuthButtons";
 import AuthForm from "../AuthForm/AuthForm";
 import Logo from "../Logo/Logo";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 // import { useAuthState } from "react-firebase-hooks/auth";
 
 const registrationForm = {
@@ -92,9 +93,12 @@ const Header = () => {
   return (
     <>
       <StyledHeader>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
+
         <NavigationMenu />
-          <AuthButtons openModal={openModal} logout={logout} user={authUser} />
+        <AuthButtons openModal={openModal} logout={logout} user={authUser} />
       </StyledHeader>
 
       {modalType === "register" && (

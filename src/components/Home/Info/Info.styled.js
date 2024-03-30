@@ -16,7 +16,7 @@ export const Item = styled.li`
   gap: 16px;
 `;
 
-export const Value = styled.li`
+export const Value = styled.p`
   color: #121417;
   
   font-family: var(--medium);
@@ -26,7 +26,7 @@ export const Value = styled.li`
   letter-spacing: -0.02em;
 `;
 
-export const Key = styled.li`
+export const Key = styled.p`
   width: 96px;
 
   font-family: var(--regular);
