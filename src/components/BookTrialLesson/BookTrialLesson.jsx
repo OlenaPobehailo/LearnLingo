@@ -1,10 +1,13 @@
 import { PropTypes } from "prop-types";
 import {
   Avatar,
+  Input,
   Label,
   Question,
   RadioInput,
+  RadioLabel,
   RadioWrapper,
+  SubmitButton,
   Subtitle,
   Teacher,
   TeacherName,
@@ -37,63 +40,85 @@ const BookTrialLesson = ({ teacher }) => {
         </div>
       </Teacher>
       <Question>What is your main reason for learning English?</Question>
+      <form>
+        <RadioWrapper>
+          <RadioLabel>
+            <RadioInput
+              type="radio"
+              name="category"
+              value="career_business"
+              checked={selectedCategory === "career_business"}
+              onChange={handleCategoryChange}
+            />
+            Career and business
+          </RadioLabel>
 
-      <RadioWrapper>
-        <Label>
-          <RadioInput
-            type="radio"
-            name="category"
-            value="career_business"
-            checked={selectedCategory === "career_business"}
-            onChange={handleCategoryChange}
-          />
-          Career and business
-        </Label>
+          <RadioLabel>
+            <RadioInput
+              type="radio"
+              name="category"
+              value="lesson_kids"
+              checked={selectedCategory === "lesson_kids"}
+              onChange={handleCategoryChange}
+            />
+            Lesson for kids
+          </RadioLabel>
 
-        <Label>
-          <RadioInput
-            type="radio"
-            name="category"
-            value="lesson_kids"
-            checked={selectedCategory === "lesson_kids"}
-            onChange={handleCategoryChange}
-          />
-          Lesson for kids
-        </Label>
+          <RadioLabel>
+            <RadioInput
+              type="radio"
+              name="category"
+              value="living_abroad"
+              checked={selectedCategory === "living_abroad"}
+              onChange={handleCategoryChange}
+            />
+            Living abroad
+          </RadioLabel>
 
-        <Label>
-          <RadioInput
-            type="radio"
-            name="category"
-            value="living_abroad"
-            checked={selectedCategory === "living_abroad"}
-            onChange={handleCategoryChange}
-          />
-          Living abroad
-        </Label>
+          <RadioLabel>
+            <RadioInput
+              type="radio"
+              name="category"
+              value="exams_coursework"
+              checked={selectedCategory === "exams_coursework"}
+              onChange={handleCategoryChange}
+            />
+            Exams and coursework
+          </RadioLabel>
 
-        <Label>
-          <RadioInput
-            type="radio"
-            name="category"
-            value="exams_coursework"
-            checked={selectedCategory === "exams_coursework"}
-            onChange={handleCategoryChange}
-          />
-          Exams and coursework
-        </Label>
+          <RadioLabel>
+            <RadioInput
+              type="radio"
+              name="category"
+              value="culture_travel_hobby"
+              checked={selectedCategory === "culture_travel_hobby"}
+              onChange={handleCategoryChange}
+            />
+            Culture, travel or hobby
+          </RadioLabel>
+        </RadioWrapper>
 
-        <Label>
-          <RadioInput
-            type="radio"
-            name="category"
-            value="culture_travel_hobby"
-            checked={selectedCategory === "culture_travel_hobby"}
-            onChange={handleCategoryChange}
-          />
-          Culture, travel or hobby
-        </Label>
-      </RadioWrapper>
+        <Label htmlFor="fullName">Full Name</Label>
+        <Input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Full Name"
+        />
+
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" id="email" name="email" placeholder="Email" />
+
+        <Label htmlFor="phoneNumber">Phone number</Label>
+        <Input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Phone number"
+        />
+
+        <SubmitButton>Book</SubmitButton>
+      </form>
     </div>
   );
 };
