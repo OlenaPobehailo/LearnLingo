@@ -1,8 +1,13 @@
 import { PropTypes } from "prop-types";
 import { useState } from "react";
-import { OptionItem, OptionsList, SelectButton, SelectWrapper } from "./CustomSelect.styled";
+import {
+  OptionItem,
+  OptionsList,
+  SelectButton,
+  SelectWrapper,
+} from "./CustomSelect.styled";
 
-const CustomSelect = ({ options, onSelect  }) => {
+const CustomSelect = ({ options, onSelect, placeholder }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -19,7 +24,7 @@ const CustomSelect = ({ options, onSelect  }) => {
   return (
     <SelectWrapper>
       <SelectButton onClick={toggleOptions}>
-        {selectedOption ? selectedOption : "Select Language"}
+        {selectedOption ? selectedOption : placeholder || "Select"}
         <svg
           width="10"
           height="6"
@@ -55,6 +60,12 @@ const CustomSelect = ({ options, onSelect  }) => {
 export default CustomSelect;
 
 CustomSelect.propTypes = {
-  options: PropTypes.string,
-  onSelect: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onSelect: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
 };

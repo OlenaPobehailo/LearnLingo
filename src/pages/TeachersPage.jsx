@@ -14,18 +14,23 @@ const TeachersPage = () => {
   const [totalTeachers, setTotalTeachers] = useState(0);
   const [visibleTeachers, setVisibleTeachers] = useState(4);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [selectedLevel, setSelectedLevel] = useState(null);
 
   useEffect(() => {
     const db = getDatabase();
     const teachersRef = ref(db, "teachers");
-  
+
     get(teachersRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
           const teacherData = Object.values(snapshot.val());
           setTotalTeachers(teacherData.length);
           const filteredTeachers = teacherData.filter(
-            (teacher) => selectedLanguage === null || teacher.languages.includes(selectedLanguage)
+            (teacher) =>
+              selectedLanguage === null ||
+              (teacher.languages.includes(selectedLanguage) &&
+                (selectedLevel === null ||
+                  teacher.levels.includes(selectedLevel)))
           );
           setTeachers(filteredTeachers.slice(0, visibleTeachers));
         } else {
@@ -35,8 +40,8 @@ const TeachersPage = () => {
       .catch((error) => {
         console.error("Error getting data:", error);
       });
-  }, [visibleTeachers, selectedLanguage]);
-  
+  }, [visibleTeachers, selectedLanguage, selectedLevel]);
+
   const handleLoadMore = () => {
     setVisibleTeachers((prevVisibleTeachers) => prevVisibleTeachers + 4);
   };
@@ -45,11 +50,18 @@ const TeachersPage = () => {
     setSelectedLanguage(language);
   };
 
+  const handleSelectLevel = (level) => {
+    setSelectedLevel(level);
+  };
+
   return (
     <GreyWrapper>
       <StyledCommonWrapper>
         <TeacherPageWrapper>
-          <Filter onSelectLanguage={handleSelectLanguage} />
+          <Filter
+            onSelectLanguage={handleSelectLanguage}
+            onSelectLevel={handleSelectLevel}
+          />
           <TeachersList>
             {teachers &&
               teachers.map((teacher, index) => (
@@ -68,4 +80,3 @@ const TeachersPage = () => {
 };
 
 export default TeachersPage;
-
