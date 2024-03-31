@@ -12,9 +12,12 @@ export const Languages = styled.div`
 `;
 
 export const Levels = styled.div`
-width: 198px;
+  width: 198px;
 `;
 
+export const Price = styled.div`
+  width: 124px;
+`;
 
 export const Title = styled.div`
   margin-bottom: 8px;

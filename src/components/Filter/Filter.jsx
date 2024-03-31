@@ -1,7 +1,13 @@
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 import CustomSelect from "../../components/CustomSelect";
-import { FilterWrapper, Languages, Levels, Title } from "./Filter.styled";
+import {
+  FilterWrapper,
+  Languages,
+  Levels,
+  Price,
+  Title,
+} from "./Filter.styled";
 
 const languages = [
   "French",
@@ -19,9 +25,12 @@ const levels = [
   "B2 Upper-Intermediate",
 ];
 
-const Filter = ({ onSelectLanguage, onSelectLevel }) => {
+const prices = ["10", "20", "30", "40"];
+
+const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState(null);
 
   const handleSelectLanguage = (language) => {
     setSelectedLanguage(language);
@@ -35,6 +44,13 @@ const Filter = ({ onSelectLanguage, onSelectLevel }) => {
     onSelectLevel(level);
   };
 
+  const handleSelectPrice = (price) => {
+    const priceValue = parseFloat(price);
+    setSelectedPrice(priceValue);
+    console.log(selectedPrice);
+    onSelectPrice(priceValue);
+  };
+
   return (
     <FilterWrapper>
       <Languages>
@@ -46,6 +62,11 @@ const Filter = ({ onSelectLanguage, onSelectLevel }) => {
         <Title>Levels</Title>
         <CustomSelect options={levels} onSelect={handleSelectLevel} />
       </Levels>
+
+      <Price>
+        <Title>Price</Title>
+        <CustomSelect options={prices} onSelect={handleSelectPrice} />
+      </Price>
     </FilterWrapper>
   );
 };
@@ -55,4 +76,5 @@ export default Filter;
 Filter.propTypes = {
   onSelectLanguage: PropTypes.func,
   onSelectLevel: PropTypes.string,
+  onSelectPrice: PropTypes.string,
 };
