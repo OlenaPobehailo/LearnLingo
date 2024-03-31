@@ -7,7 +7,14 @@ export const FilterWrapper = styled.div`
   margin-bottom: 32px;
 `;
 
-export const Item = styled.div``;
+export const Languages = styled.div`
+  width: 221px;
+`;
+
+export const Levels = styled.div`
+width: 198px;
+`;
+
 
 export const Title = styled.div`
   margin-bottom: 8px;

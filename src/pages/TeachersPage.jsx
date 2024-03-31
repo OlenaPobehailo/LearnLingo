@@ -25,13 +25,14 @@ const TeachersPage = () => {
         if (snapshot.exists()) {
           const teacherData = Object.values(snapshot.val());
           setTotalTeachers(teacherData.length);
-          const filteredTeachers = teacherData.filter(
-            (teacher) =>
+          const filteredTeachers = teacherData.filter((teacher) => {
+            const languageFilter =
               selectedLanguage === null ||
-              (teacher.languages.includes(selectedLanguage) &&
-                (selectedLevel === null ||
-                  teacher.levels.includes(selectedLevel)))
-          );
+              teacher.languages.includes(selectedLanguage);
+            const levelFilter =
+              selectedLevel === null || teacher.levels.includes(selectedLevel);
+            return languageFilter && levelFilter;
+          });
           setTeachers(filteredTeachers.slice(0, visibleTeachers));
         } else {
           console.log("No data available");

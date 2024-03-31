@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 import CustomSelect from "../../components/CustomSelect";
-import { FilterWrapper, Item, Title } from "./Filter.styled";
+import { FilterWrapper, Languages, Levels, Title } from "./Filter.styled";
 
 const languages = [
   "French",
@@ -37,15 +37,15 @@ const Filter = ({ onSelectLanguage, onSelectLevel }) => {
 
   return (
     <FilterWrapper>
-      <Item>
+      <Languages>
         <Title>Languages</Title>
         <CustomSelect options={languages} onSelect={handleSelectLanguage} />
-      </Item>
+      </Languages>
 
-      <Item>
-        <Title>Languages</Title>
+      <Levels>
+        <Title>Levels</Title>
         <CustomSelect options={levels} onSelect={handleSelectLevel} />
-      </Item>
+      </Levels>
     </FilterWrapper>
   );
 };
@@ -53,6 +53,6 @@ const Filter = ({ onSelectLanguage, onSelectLevel }) => {
 export default Filter;
 
 Filter.propTypes = {
-  onSelectLanguage: PropTypes.string,
+  onSelectLanguage: PropTypes.func,
   onSelectLevel: PropTypes.string,
 };

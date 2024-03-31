@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const SelectWrapper = styled.div`
   position: relative;
-  min-width: 200px;
+  /* min-width: 200px; */
+  width: 100%;
 `;
 
 export const SelectButton = styled.div`
