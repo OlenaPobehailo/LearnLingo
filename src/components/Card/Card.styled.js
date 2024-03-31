@@ -5,8 +5,9 @@ export const CardWrapper = styled.div`
   gap: 48px;
   width: 1184px;
   padding: 24px;
+  border-radius: 24px;
 
-  outline: 1px solid red;
+  background-color: #ffffff;
 `;
 
 export const Avatar = styled.img`
@@ -63,7 +64,6 @@ export const Item = styled.div`
     margin-right: 64px;
   }
 `;
-
 
 export const Teacher = styled.p`
   margin-bottom: 32px;
