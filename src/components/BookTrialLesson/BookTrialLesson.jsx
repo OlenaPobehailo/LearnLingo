@@ -50,7 +50,7 @@ const BookTrialLesson = ({ teacher }) => {
               checked={selectedCategory === "career_business"}
               onChange={handleCategoryChange}
             />
-            Career and business
+            <span>Career and business</span>
           </RadioLabel>
 
           <RadioLabel>
@@ -61,7 +61,7 @@ const BookTrialLesson = ({ teacher }) => {
               checked={selectedCategory === "lesson_kids"}
               onChange={handleCategoryChange}
             />
-            Lesson for kids
+            <span>Lesson for kids</span>
           </RadioLabel>
 
           <RadioLabel>
@@ -72,7 +72,7 @@ const BookTrialLesson = ({ teacher }) => {
               checked={selectedCategory === "living_abroad"}
               onChange={handleCategoryChange}
             />
-            Living abroad
+            <span>Living abroad</span>
           </RadioLabel>
 
           <RadioLabel>
@@ -83,7 +83,7 @@ const BookTrialLesson = ({ teacher }) => {
               checked={selectedCategory === "exams_coursework"}
               onChange={handleCategoryChange}
             />
-            Exams and coursework
+            <span>Exams and coursework</span>
           </RadioLabel>
 
           <RadioLabel>
@@ -94,7 +94,7 @@ const BookTrialLesson = ({ teacher }) => {
               checked={selectedCategory === "culture_travel_hobby"}
               onChange={handleCategoryChange}
             />
-            Culture, travel or hobby
+            <span>Culture, travel or hobby</span>
           </RadioLabel>
         </RadioWrapper>
 

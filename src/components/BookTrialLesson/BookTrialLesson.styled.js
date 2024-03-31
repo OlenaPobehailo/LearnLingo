@@ -80,6 +80,12 @@ export const RadioLabel = styled.label`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.375;
+
+  cursor: pointer;
+
+  & span {
+    padding-top: 2px;
+  }
 `;
 
 export const RadioInput = styled.input`
@@ -96,7 +102,6 @@ export const RadioInput = styled.input`
   border-radius: 50%;
   outline: none;
   margin-right: 8px;
-  margin-bottom: 2px;
 
   &:checked {
     border: 3px solid #f4c550;
