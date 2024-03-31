@@ -75,6 +75,6 @@ export default Filter;
 
 Filter.propTypes = {
   onSelectLanguage: PropTypes.func,
-  onSelectLevel: PropTypes.string,
-  onSelectPrice: PropTypes.string,
+  onSelectLevel: PropTypes.func,
+  onSelectPrice: PropTypes.func,
 };

@@ -60,12 +60,7 @@ const CustomSelect = ({ options, onSelect, placeholder }) => {
 export default CustomSelect;
 
 CustomSelect.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.any.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  options: PropTypes.array.isRequired,
   onSelect: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
 };
