@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FilterWrapper = styled.div`
   display: flex;
   gap: 20px;
-
+  padding-top: 96px;
   margin-bottom: 32px;
 `;
 

@@ -55,17 +55,17 @@ const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
     <FilterWrapper>
       <Languages>
         <Title>Languages</Title>
-        <CustomSelect options={languages} onSelect={handleSelectLanguage} />
+        <CustomSelect options={languages} onSelect={handleSelectLanguage} placeholder="Languages"/>
       </Languages>
 
       <Levels>
-        <Title>Levels</Title>
-        <CustomSelect options={levels} onSelect={handleSelectLevel} />
+        <Title>Level of knowledge</Title>
+        <CustomSelect options={levels} onSelect={handleSelectLevel} placeholder="Levels"/>
       </Levels>
 
       <Price>
         <Title>Price</Title>
-        <CustomSelect options={prices} onSelect={handleSelectPrice} />
+        <CustomSelect options={prices} onSelect={handleSelectPrice} placeholder="Price"/>
       </Price>
     </FilterWrapper>
   );
