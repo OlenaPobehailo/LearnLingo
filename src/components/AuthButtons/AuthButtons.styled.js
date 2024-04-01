@@ -22,6 +22,14 @@ export const Register = styled.button`
 
   font-family: var(--bold);
   line-height: 1.25;
+
+  @media screen and (max-width: 768px) {
+    width: fit-content;
+    height: 40px;
+    padding: 14px 39px;
+
+
+  }
 `;
 
 export const Login = styled.button`
