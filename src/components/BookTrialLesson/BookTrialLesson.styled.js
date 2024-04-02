@@ -1,29 +1,57 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 
   font-family: var(--medium);
-  font-size: 40px;
+  font-size: 24px;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #121417;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
 `;
 
 export const Text = styled.h2`
-  margin-bottom: 40px;
+  margin-bottom: 16px;
 
   font-family: var(--regular);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.375;
   color: rgba(18, 20, 23, 0.8);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
 `;
 
 export const Teacher = styled.div`
   display: flex;
   gap: 14px;
 
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -53,18 +81,36 @@ export const TeacherName = styled.p`
 `;
 
 export const Question = styled.p`
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 
   color: #121417;
 
   font-family: var(--medium);
   font-weight: 500;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 1.33;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
 `;
 
 export const RadioWrapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const Item = styled.div``;
@@ -72,19 +118,29 @@ export const Item = styled.div``;
 export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 
   color: #121417;
 
   font-family: var(--regular);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.375;
 
   cursor: pointer;
 
   & span {
     padding-top: 2px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 15px;
+    font-size: 16px;
   }
 `;
 
@@ -109,8 +165,8 @@ export const RadioInput = styled.input`
 
   &:checked::after {
     content: "";
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     background-color: #f4c550;
     border-radius: 50%;
     display: block;
@@ -120,7 +176,7 @@ export const RadioInput = styled.input`
 export const Input = styled.input`
   display: block;
   width: 100%;
-  height: 54px;
+  height: 40px;
   padding: 16px 18px;
   margin-bottom: 18px;
 
@@ -129,6 +185,18 @@ export const Input = styled.input`
 
   &:last-child {
     margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 48px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 54px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
   }
 `;
 

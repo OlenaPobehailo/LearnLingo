@@ -15,11 +15,21 @@ export const ModalOverlay = styled.div`
 
 export const ModalContent = styled.div`
   position: relative;
-  width: 565px;
+  max-width: 565px;
   margin: 10px;
-  padding: 64px;
+  padding: 24px;
   border-radius: 30px;
   background-color: #fff;
+  overflow-y: auto; 
+  max-height: calc(100vh - 10px);
+
+  @media screen and (min-width: 768px) {
+    padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 64px;
+  }
 `;
 
 export const CloseButton = styled.button`
