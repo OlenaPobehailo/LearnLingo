@@ -73,13 +73,13 @@ body {
 }
 
 
-h1 {
+/* h1 {
   font-size: 2em; 
 }
 
 h2 {
   font-size: 1.5em; 
-}
+} */
 
 
 p {

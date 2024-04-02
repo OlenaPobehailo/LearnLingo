@@ -21,7 +21,9 @@ const Hero = () => {
         </Text>
         <StyledLink to="/teachers">Get started</StyledLink>
       </Main>
-      <Image src="/public/images/hero/block-1.jpg" alt="" />
+      <imageWrapper>
+        <Image src="/public/images/hero/block-1.jpg" alt="" />
+      </imageWrapper>
     </StyledHero>
   );
 };

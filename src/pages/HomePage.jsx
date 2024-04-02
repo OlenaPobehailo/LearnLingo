@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <StyledCommonWrapper>
       <Hero />
-      <Info/>
+      {/* <Info/> */}
     </StyledCommonWrapper>
   );
 };

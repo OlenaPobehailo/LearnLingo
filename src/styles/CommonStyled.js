@@ -10,9 +10,9 @@ export const StyledCommonWrapper = styled.div`
 
   margin: 0 auto;
 
-  /* @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) {
     width: 320px;
-  } */
+  }
 
   @media screen and (min-width: 480px) {
     width: 480px;

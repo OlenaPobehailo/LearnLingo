@@ -5,25 +5,38 @@ export const StyledHero = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  flex-direction: column;
 
-  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
 `;
 
 export const Main = styled.div`
-  padding-left: 64px;
-  padding-right: 100px;
+  padding-left: 5%;
+  padding-right: 10%;
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 64px;
+    padding-right: 100px;
+  }
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
   color: #121417;
-
-  font-family: var(--medium);
-  font-size: 48px;
+  font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
+  font-family: var(--medium);
 
   & span {
     font-family: var(--italic);
@@ -43,11 +56,20 @@ export const Title = styled.h1`
     border-radius: 10px;
     z-index: -1;
   }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 32px;
+    font-size: 48px;
+  }
 `;
 
 export const Text = styled.p`
-  width: 470px;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 
   color: #121417;
 
@@ -55,6 +77,15 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 1.375;
   letter-spacing: -0.02em;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 470px;
+    margin-bottom: 64px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -63,6 +94,7 @@ export const StyledLink = styled(Link)`
   justify-content: center;
 
   border-radius: 12px;
+  margin-bottom: 32px;
   padding: 16px 88px;
   width: 267px;
   height: 60px;
@@ -80,7 +112,12 @@ export const StyledLink = styled(Link)`
     background-color: #ffdc86;
   }
 `;
+export const imageWrapper = styled.div`
+  @media screen and (min-width: 1440px) {
+    width: 568px;
+  }
+`;
 
 export const Image = styled.img`
-  width: 568px;
+  width: 100%;
 `;
