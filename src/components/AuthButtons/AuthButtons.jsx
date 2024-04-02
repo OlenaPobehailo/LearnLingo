@@ -44,7 +44,7 @@ const AuthButtons = ({ openModal, logout }) => {
 
       {user && (
         <FlexWrapper>
-          <Greeting>Hello, {user.displayName}!</Greeting>
+          <Greeting>{user.displayName}</Greeting>
           <Logout onClick={logout}>Log Out</Logout>
         </FlexWrapper>
       )}
