@@ -1,13 +1,24 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 
   font-family: var(--medium);
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #121417;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 18px;
+    font-size: 36px;
+
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
 `;
 
 export const Text = styled.h2`
