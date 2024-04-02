@@ -65,7 +65,7 @@ const Card = ({ teacher }) => {
               </Languages>
             </TeacherInfo>
             <TeacherInfo>
-              Lesson Info:&nbsp; <span>{teacher.lesson_info}</span>
+              Lesson&nbsp;Info:&nbsp; <span>{teacher.lesson_info}</span>
             </TeacherInfo>
             <TeacherInfo>
               Conditions:&nbsp; <span>{teacher.conditions}</span>

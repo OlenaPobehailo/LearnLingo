@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  display: flex;
   border-radius: 24px;
   padding: 12px;
 
   background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 
   @media screen and (min-width: 1440px) {
     gap: 48px;
@@ -104,6 +107,7 @@ export const TeacherInfo = styled.div`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
+  white-space: "nowrap";
 
   & span {
     color: #121417;
@@ -176,8 +180,13 @@ export const Reviews = styled.ul`
 
 export const Levels = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 32px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 export const Level = styled.li`
