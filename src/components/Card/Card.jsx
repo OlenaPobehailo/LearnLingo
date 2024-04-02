@@ -1,6 +1,7 @@
 import { PropTypes } from "prop-types";
 import {
   Avatar,
+  AvatarWrapper,
   BookLesson,
   CardWrapper,
   Experience,
@@ -41,9 +42,9 @@ const Card = ({ teacher }) => {
   return (
     <>
       <CardWrapper>
-        <div>
+        <AvatarWrapper>
           <Avatar src={teacher.avatar_url} alt="" />
-        </div>
+        </AvatarWrapper>
         <RightPart>
           <CardHeader teacher={teacher} />
 

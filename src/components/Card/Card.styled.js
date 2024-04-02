@@ -2,17 +2,26 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   display: flex;
-  gap: 48px;
-  width: 1184px;
-  padding: 24px;
   border-radius: 24px;
+  padding: 12px;
 
   background-color: #ffffff;
+
+  @media screen and (min-width: 1440px) {
+    gap: 48px;
+    width: 1184px;
+    padding: 24px;
+  }
+`;
+
+export const AvatarWrapper = styled.div`
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
 `;
 
 export const Avatar = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 100%;
   border-radius: 50%;
   padding: 14px;
   border: 3px solid #fbe9ba;
@@ -20,12 +29,18 @@ export const Avatar = styled.img`
 
 export const RightPart = styled.div`
   /* flex-grow: 1; */
-  width: 968px;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 968px;
+  }
 `;
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  /* width: 100%; */
 
   margin-bottom: 8px;
 
