@@ -2,9 +2,20 @@ import styled from "styled-components";
 
 export const FilterWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  padding-top: 96px;
-  margin-bottom: 32px;
+  padding-top: 32px;
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 96px;
+    margin-bottom: 32px;
+  }
 `;
 
 export const Languages = styled.div`
