@@ -16,6 +16,10 @@ const languages = [
   "Ukrainian",
   "Polish",
   "Spanish",
+  "Mandarin Chinese",
+  "Italian",
+  "Korean",
+  "Vietnamese",
 ];
 
 const levels = [
@@ -23,6 +27,8 @@ const levels = [
   "A2 Elementary",
   "B1 Intermediate",
   "B2 Upper-Intermediate",
+  "C1 Advanced",
+  "C2 Proficient",
 ];
 
 const prices = ["10", "20", "30", "40"];
@@ -55,17 +61,29 @@ const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
     <FilterWrapper>
       <Languages>
         <Title>Languages</Title>
-        <CustomSelect options={languages} onSelect={handleSelectLanguage} placeholder="Languages"/>
+        <CustomSelect
+          options={languages}
+          onSelect={handleSelectLanguage}
+          placeholder="Languages"
+        />
       </Languages>
 
       <Levels>
         <Title>Level of knowledge</Title>
-        <CustomSelect options={levels} onSelect={handleSelectLevel} placeholder="Levels"/>
+        <CustomSelect
+          options={levels}
+          onSelect={handleSelectLevel}
+          placeholder="Levels"
+        />
       </Levels>
 
       <Price>
         <Title>Price</Title>
-        <CustomSelect options={prices} onSelect={handleSelectPrice} placeholder="Price"/>
+        <CustomSelect
+          options={prices}
+          onSelect={handleSelectPrice}
+          placeholder="Price"
+        />
       </Price>
     </FilterWrapper>
   );
