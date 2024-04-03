@@ -113,6 +113,7 @@ const Header = () => {
             button={registrationForm.button}
             onSubmit={register}
             validationSchema={validationRegisterSchema}
+            onClose={closeModal}
           />
         </Modal>
       )}
@@ -126,6 +127,7 @@ const Header = () => {
             button={loginForm.button}
             onSubmit={login}
             validationSchema={validationLoginSchema}
+            onClose={closeModal}
           />
         </Modal>
       )}
