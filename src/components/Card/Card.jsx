@@ -37,6 +37,10 @@ const Card = ({ teacher }) => {
     setShowMore(!showMore);
   };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   // console.log(reviews);
 
   return (
@@ -101,7 +105,7 @@ const Card = ({ teacher }) => {
       </CardWrapper>
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <BookTrialLesson teacher={teacher} />
+          <BookTrialLesson teacher={teacher} onCloseModal={handleCloseModal} />
         </Modal>
       )}
     </>

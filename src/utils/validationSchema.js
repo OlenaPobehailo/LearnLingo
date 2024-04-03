@@ -12,8 +12,9 @@ export const validationLoginSchema = Yup.object().shape({
 });
 
 export const validationBookSchema = Yup.object().shape({
-  category: Yup.string().required("Category is required"),
-  fullName: Yup.string().required("Name is required"),
+  fullName: Yup.string().required("Full Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  phoneNumber: Yup.string().required("Phone number is required"),
+  phoneNumber: Yup.string()
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .required("Phone number is required"),
 });

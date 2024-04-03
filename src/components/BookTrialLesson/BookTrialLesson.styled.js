@@ -1,3 +1,4 @@
+import { ErrorMessage } from "formik";
 import styled from "styled-components";
 
 export const Title = styled.h2`
@@ -238,3 +239,10 @@ export const SubmitButton = styled.button`
     background-color: #ffdc86;
   }
 `;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: #f4c550;
+  position: relative;
+  top: -18px;
+`;
+
