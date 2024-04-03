@@ -112,7 +112,7 @@ export const StyledLink = styled(Link)`
     background-color: #ffdc86;
   }
 `;
-export const imageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 568px;
   }

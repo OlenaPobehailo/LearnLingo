@@ -1,5 +1,6 @@
 import {
   Image,
+  ImageWrapper,
   Main,
   StyledHero,
   StyledLink,
@@ -21,9 +22,9 @@ const Hero = () => {
         </Text>
         <StyledLink to="/teachers">Get started</StyledLink>
       </Main>
-      <imageWrapper>
+      <ImageWrapper>
         <Image src="/public/images/hero/block-1.jpg" alt="" />
-      </imageWrapper>
+      </ImageWrapper>
     </StyledHero>
   );
 };

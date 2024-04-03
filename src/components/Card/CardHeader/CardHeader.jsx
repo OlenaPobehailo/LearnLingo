@@ -18,13 +18,14 @@ const CardHeader = ({ teacher }) => {
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log(favorites);
     setIsFavorite(
       favorites.some(
         (favorite) =>
           favorite.name === teacher.name && favorite.surname === teacher.surname
       )
     );
-    // console.log(teacher);
+    console.log(teacher);
   }, [teacher]);
 
   const handleFavoriteClick = () => {
@@ -35,9 +36,16 @@ const CardHeader = ({ teacher }) => {
 
     setIsFavorite(!isFavorite);
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log(favorites);
+
     const updatedFavorites = isFavorite
-      ? favorites.filter((favorite) => favorite.id !== teacher.id)
+      ? favorites.filter(
+          (favorite) =>
+            favorite.name !== teacher.name ||
+            favorite.surname !== teacher.surname
+        )
       : [...favorites, teacher];
+
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
