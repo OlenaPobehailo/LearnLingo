@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Formik, Form, ErrorMessage } from "formik";
 import { PropTypes } from "prop-types";
 import {
   Avatar,
@@ -14,7 +16,14 @@ import {
   Text,
   Title,
 } from "./BookTrialLesson.styled";
-import { useState } from "react";
+import { validationBookSchema } from "../../utils/validationSchema";
+
+const initialValues = {
+  category: "",
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+};
 
 const BookTrialLesson = ({ teacher }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -40,85 +49,98 @@ const BookTrialLesson = ({ teacher }) => {
         </div>
       </Teacher>
       <Question>What is your main reason for learning English?</Question>
-      <form>
-        <RadioWrapper>
-          <RadioLabel>
-            <RadioInput
-              type="radio"
-              name="category"
-              value="career_business"
-              checked={selectedCategory === "career_business"}
-              onChange={handleCategoryChange}
-            />
-            <span>Career and business</span>
-          </RadioLabel>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationBookSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log(values);
+          setSubmitting(false);
+        }}
+      >
+        <Form>
+          <RadioWrapper>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="category"
+                value="career_business"
+                checked={selectedCategory === "career_business"}
+                onChange={handleCategoryChange}
+              />
+              <span>Career and business</span>
+            </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput
-              type="radio"
-              name="category"
-              value="lesson_kids"
-              checked={selectedCategory === "lesson_kids"}
-              onChange={handleCategoryChange}
-            />
-            <span>Lesson for kids</span>
-          </RadioLabel>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="category"
+                value="lesson_kids"
+                checked={selectedCategory === "lesson_kids"}
+                onChange={handleCategoryChange}
+              />
+              <span>Lesson for kids</span>
+            </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput
-              type="radio"
-              name="category"
-              value="living_abroad"
-              checked={selectedCategory === "living_abroad"}
-              onChange={handleCategoryChange}
-            />
-            <span>Living abroad</span>
-          </RadioLabel>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="category"
+                value="living_abroad"
+                checked={selectedCategory === "living_abroad"}
+                onChange={handleCategoryChange}
+              />
+              <span>Living abroad</span>
+            </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput
-              type="radio"
-              name="category"
-              value="exams_coursework"
-              checked={selectedCategory === "exams_coursework"}
-              onChange={handleCategoryChange}
-            />
-            <span>Exams and coursework</span>
-          </RadioLabel>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="category"
+                value="exams_coursework"
+                checked={selectedCategory === "exams_coursework"}
+                onChange={handleCategoryChange}
+              />
+              <span>Exams and coursework</span>
+            </RadioLabel>
 
-          <RadioLabel>
-            <RadioInput
-              type="radio"
-              name="category"
-              value="culture_travel_hobby"
-              checked={selectedCategory === "culture_travel_hobby"}
-              onChange={handleCategoryChange}
-            />
-            <span>Culture, travel or hobby</span>
-          </RadioLabel>
-        </RadioWrapper>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="category"
+                value="culture_travel_hobby"
+                checked={selectedCategory === "culture_travel_hobby"}
+                onChange={handleCategoryChange}
+              />
+              <span>Culture, travel or hobby</span>
+            </RadioLabel>
+          </RadioWrapper>
+          <ErrorMessage name="category" component="div" className="error" />
 
-        <Label htmlFor="fullName">Full Name</Label>
-        <Input
-          type="text"
-          id="fullName"
-          name="fullName"
-          placeholder="Full Name"
-        />
+          <Label htmlFor="fullName">Full Name</Label>
+          <Input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Full Name"
+          />
+          <ErrorMessage name="fullName" component="div" className="error" />
 
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" name="email" placeholder="Email" />
+          <Label htmlFor="email">Email</Label>
+          <Input type="email" id="email" name="email" placeholder="Email" />
+          <ErrorMessage name="email" component="div" className="error" />
 
-        <Label htmlFor="phoneNumber">Phone number</Label>
-        <Input
-          type="tel"
-          id="phoneNumber"
-          name="phoneNumber"
-          placeholder="Phone number"
-        />
+          <Label htmlFor="phoneNumber">Phone number</Label>
+          <Input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Phone number"
+          />
+          <ErrorMessage name="phoneNumber" component="div" className="error" />
 
-        <SubmitButton>Book</SubmitButton>
-      </form>
+          <SubmitButton type="submit">Book</SubmitButton>
+        </Form>
+      </Formik>
     </div>
   );
 };
