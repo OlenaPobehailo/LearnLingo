@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import { auth } from "../../../../firebase-config";
 import {
   Book,
   FavoriteButton,
@@ -8,9 +12,6 @@ import {
   Text,
   Wrapper,
 } from "./CardHeader.styled";
-import { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../../firebase-config";
 
 const CardHeader = ({ teacher }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -26,11 +27,27 @@ const CardHeader = ({ teacher }) => {
       )
     );
     console.log(teacher);
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        setIsFavorite(false);
+      }
+    });
+
+    return () => unsubscribe();
   }, [teacher]);
 
   const handleFavoriteClick = () => {
     if (!user) {
-      alert("Даний функціонал доступний лише для авторизованих користувачів");
+      toast("Даний функціонал доступний лише для авторизованих користувачів", {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
