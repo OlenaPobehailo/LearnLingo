@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import styled from "styled-components";
 
 export const Title = styled.h2`
@@ -69,4 +69,10 @@ export const Button = styled.button`
   &:focus {
     background-color: #ffdc86;
   }
+`;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: #f4c550;
+  position: relative;
+  top: -18px;
 `;

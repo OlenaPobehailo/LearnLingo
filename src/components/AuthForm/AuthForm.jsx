@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
-import { Formik, Form, ErrorMessage } from "formik";
-import { Button, StyledField, Text, Title } from "./AuthForm.styled";
+import { Formik, Form } from "formik";
+import {
+  Button,
+  StyledErrorMessage,
+  StyledField,
+  Text,
+  Title,
+} from "./AuthForm.styled";
 
 const initialValues = {
   name: "",
@@ -15,6 +21,7 @@ const AuthForm = ({
   button,
   onSubmit,
   validationSchema,
+  onClose,
 }) => {
   return (
     <Formik
@@ -23,6 +30,7 @@ const AuthForm = ({
       onSubmit={(values, { setSubmitting }) => {
         onSubmit(values);
         setSubmitting(false);
+        onClose();
       }}
     >
       {({ isSubmitting }) => (
@@ -38,7 +46,7 @@ const AuthForm = ({
                 name={field.name}
                 placeholder={field.placeholder}
               />
-              <ErrorMessage name={field.name} component="div" />
+              <StyledErrorMessage name={field.name} component="div" />
             </div>
           ))}
           <Button type="submit" disabled={isSubmitting}>
@@ -59,4 +67,5 @@ AuthForm.propTypes = {
   button: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   validationSchema: PropTypes.object.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
