@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 
 export const Title = styled.h2`
@@ -12,7 +13,6 @@ export const Title = styled.h2`
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
     font-size: 36px;
-
   }
 
   @media screen and (min-width: 1440px) {
@@ -30,7 +30,7 @@ export const Text = styled.h2`
   color: rgba(18, 20, 23, 0.8);
 `;
 
-export const Input = styled.input`
+export const StyledField = styled(Field)`
   display: block;
   width: 100%;
   height: 54px;

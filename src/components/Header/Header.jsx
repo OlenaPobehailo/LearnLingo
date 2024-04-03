@@ -16,7 +16,10 @@ import AuthForm from "../AuthForm/AuthForm";
 import Logo from "../Logo/Logo";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  validationLoginSchema,
+  validationRegisterSchema,
+} from "../../utils/validationSchema";
 
 const registrationForm = {
   title: "Registration",
@@ -109,6 +112,7 @@ const Header = () => {
             fields={registrationForm.fields}
             button={registrationForm.button}
             onSubmit={register}
+            validationSchema={validationRegisterSchema}
           />
         </Modal>
       )}
@@ -121,6 +125,7 @@ const Header = () => {
             fields={loginForm.fields}
             button={loginForm.button}
             onSubmit={login}
+            validationSchema={validationLoginSchema}
           />
         </Modal>
       )}

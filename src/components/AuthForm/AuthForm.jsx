@@ -1,34 +1,52 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
-import { Button, Input, Text, Title } from "./AuthForm.styled";
+import { Formik, Form, ErrorMessage } from "formik";
+import { Button, StyledField, Text, Title } from "./AuthForm.styled";
 
-const AuthForm = ({ title, fields, text, button, onSubmit }) => {
-  const [formValues, setFormValues] = useState({});
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+};
 
-  const handleChange = (e, fieldName) => {
-    setFormValues({ ...formValues, [fieldName]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formValues);
-  };
-
+const AuthForm = ({
+  title,
+  fields,
+  text,
+  button,
+  onSubmit,
+  validationSchema,
+}) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <Title>{title}</Title>
-      <Text>{text}</Text>
-      {fields.map((field) => (
-        <Input
-          key={field.name}
-          type={field.type}
-          placeholder={field.placeholder}
-          value={formValues[field.name] || ""}
-          onChange={(e) => handleChange(e, field.name)}
-        />
-      ))}
-      <Button type="submit">{button}</Button>
-    </form>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        onSubmit(values);
+        setSubmitting(false);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Title>{title}</Title>
+          <Text>{text}</Text>
+
+          {fields.map((field) => (
+            <div key={field.name}>
+              <StyledField
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                placeholder={field.placeholder}
+              />
+              <ErrorMessage name={field.name} component="div" />
+            </div>
+          ))}
+          <Button type="submit" disabled={isSubmitting}>
+            {button}
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
@@ -40,4 +58,5 @@ AuthForm.propTypes = {
   fields: PropTypes.array.isRequired,
   button: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  validationSchema: PropTypes.object.isRequired,
 };
