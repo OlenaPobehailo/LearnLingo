@@ -19,16 +19,18 @@ const CardHeader = ({ teacher }) => {
   console.log(user);
 
   useEffect(() => {
-    const userId = user.uid;
-
-    const favorites = JSON.parse(localStorage.getItem(userId)) || [];
-    console.log(favorites);
-    setIsFavorite(
-      favorites.some(
-        (favorite) =>
-          favorite.name === teacher.name && favorite.surname === teacher.surname
-      )
-    );
+    if (user) {
+      const userId = user.uid;
+      const favorites = JSON.parse(localStorage.getItem(userId)) || [];
+      console.log(favorites);
+      setIsFavorite(
+        favorites.some(
+          (favorite) =>
+            favorite.name === teacher.name &&
+            favorite.surname === teacher.surname
+        )
+      );
+    }
     console.log(teacher);
 
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -38,7 +40,7 @@ const CardHeader = ({ teacher }) => {
     });
 
     return () => unsubscribe();
-  }, [teacher]);
+  }, [teacher, user]);
 
   const handleFavoriteClick = () => {
     if (!user) {
@@ -55,7 +57,7 @@ const CardHeader = ({ teacher }) => {
     }
     const userId = user.uid;
     setIsFavorite(!isFavorite);
-    
+
     const favorites = JSON.parse(localStorage.getItem(userId)) || [];
     console.log(favorites);
 
