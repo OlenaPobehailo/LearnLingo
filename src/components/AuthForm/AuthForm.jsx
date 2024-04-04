@@ -45,6 +45,7 @@ const AuthForm = ({
                 id={field.name}
                 name={field.name}
                 placeholder={field.placeholder}
+                aria-label={field.label}
               />
               <StyledErrorMessage name={field.name} component="div" />
             </div>

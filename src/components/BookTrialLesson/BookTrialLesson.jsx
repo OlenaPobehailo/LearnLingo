@@ -70,6 +70,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
                   value="career_business"
                   checked={selectedCategory === "career_business"}
                   onChange={handleCategoryChange}
+                  aria-label="Career and business"
                 />
                 <span>Career and business</span>
               </RadioLabel>
@@ -81,6 +82,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
                   value="lesson_kids"
                   checked={selectedCategory === "lesson_kids"}
                   onChange={handleCategoryChange}
+                  aria-label="Lesson for kids"
                 />
                 <span>Lesson for kids</span>
               </RadioLabel>
@@ -92,6 +94,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
                   value="living_abroad"
                   checked={selectedCategory === "living_abroad"}
                   onChange={handleCategoryChange}
+                  aria-label="Living abroad"
                 />
                 <span>Living abroad</span>
               </RadioLabel>
@@ -103,6 +106,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
                   value="exams_coursework"
                   checked={selectedCategory === "exams_coursework"}
                   onChange={handleCategoryChange}
+                  aria-label="Exams and coursework"
                 />
                 <span>Exams and coursework</span>
               </RadioLabel>
@@ -114,6 +118,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
                   value="culture_travel_hobby"
                   checked={selectedCategory === "culture_travel_hobby"}
                   onChange={handleCategoryChange}
+                  aria-label="Culture, travel or hobby"
                 />
                 <span>Culture, travel or hobby</span>
               </RadioLabel>
@@ -128,6 +133,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
               value={values.fullName}
               onChange={handleChange}
               onBlur={handleBlur}
+              aria-label="Full Name"
             />
             <StyledErrorMessage name="fullName" component="div" />
 
@@ -140,6 +146,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
+              aria-label="Email"
             />
             <StyledErrorMessage name="email" component="div" />
 
@@ -152,6 +159,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
               value={values.phoneNumber}
               onChange={handleChange}
               onBlur={handleBlur}
+              aria-label="Phone number"
             />
             <StyledErrorMessage name="phoneNumber" component="div" />
 
