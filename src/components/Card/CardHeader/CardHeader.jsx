@@ -16,13 +16,12 @@ import {
 const CardHeader = ({ teacher }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [user] = useAuthState(auth);
-  console.log(user);
 
   useEffect(() => {
     if (user) {
       const userId = user.uid;
       const favorites = JSON.parse(localStorage.getItem(userId)) || [];
-      console.log(favorites);
+
       setIsFavorite(
         favorites.some(
           (favorite) =>
@@ -31,7 +30,6 @@ const CardHeader = ({ teacher }) => {
         )
       );
     }
-    console.log(teacher);
 
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (!user) {
@@ -59,7 +57,6 @@ const CardHeader = ({ teacher }) => {
     setIsFavorite(!isFavorite);
 
     const favorites = JSON.parse(localStorage.getItem(userId)) || [];
-    console.log(favorites);
 
     const updatedFavorites = isFavorite
       ? favorites.filter(

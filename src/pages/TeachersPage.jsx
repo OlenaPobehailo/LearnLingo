@@ -26,7 +26,7 @@ const TeachersPage = () => {
         if (snapshot.exists()) {
           const teacherData = Object.values(snapshot.val());
           setTotalTeachers(teacherData.length);
-          // console.log(teacherData)
+
           const filteredTeachers = teacherData.filter((teacher) => {
             const languageFilter =
               selectedLanguage === null ||
@@ -35,11 +35,8 @@ const TeachersPage = () => {
               selectedLevel === null || teacher.levels.includes(selectedLevel);
 
             const priceFilter =
-              selectedPrice === null || parseFloat(teacher.price_per_hour) <= selectedPrice;
-
-              // console.log(teacher.price_per_hour)
-              // console.log(selectedPrice)
-
+              selectedPrice === null ||
+              parseFloat(teacher.price_per_hour) <= selectedPrice;
 
             return languageFilter && levelFilter && priceFilter;
           });

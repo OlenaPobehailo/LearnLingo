@@ -8,7 +8,6 @@ import {
 } from "./Review.styled";
 
 const Review = ({ review }) => {
-  console.log(review);
   return (
     <>
       <Reviewer>

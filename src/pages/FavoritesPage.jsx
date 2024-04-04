@@ -15,9 +15,6 @@ const FavoritesPage = () => {
     });
   }, []);
 
-  console.log(user);
-  console.log(user.uid);
-
   useEffect(() => {
     if (user && user.uid) {
       const userId = user.uid;
@@ -25,8 +22,6 @@ const FavoritesPage = () => {
       setFavoriteTeachers(favorites);
     }
   }, [user]);
-
-  console.log("Favorite Teachers:", favoriteTeachers);
 
   return (
     <StyledCommonWrapper>

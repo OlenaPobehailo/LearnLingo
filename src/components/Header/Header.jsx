@@ -68,10 +68,8 @@ const Header = () => {
         password
       );
       const user = userCredential.user;
-      console.log(user);
 
       await updateProfile(user, { displayName: name });
-      console.log(user);
     } catch (error) {
       console.log(error.message);
 
@@ -94,7 +92,6 @@ const Header = () => {
       const { email, password } = formData;
 
       await signInWithEmailAndPassword(auth, email, password);
-      // console.log(user);
     } catch (error) {
       console.log(error.message);
 

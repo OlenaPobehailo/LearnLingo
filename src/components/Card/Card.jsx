@@ -30,7 +30,6 @@ const Card = ({ teacher }) => {
     setIsModalOpen(true);
   };
 
-  // console.log(teacher);
   const { reviews, levels, languages } = teacher;
 
   const toggleShowMore = () => {
@@ -41,7 +40,6 @@ const Card = ({ teacher }) => {
     setIsModalOpen(false);
   };
 
-  // console.log(reviews);
 
   return (
     <>

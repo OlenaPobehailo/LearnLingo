@@ -34,26 +34,23 @@ const levels = [
 const prices = ["10", "20", "30", "40"];
 
 const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [selectedLevel, setSelectedLevel] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState(null);
+  const [, setSelectedLanguage] = useState(null);
+  const [, setSelectedLevel] = useState(null);
+  const [, setSelectedPrice] = useState(null);
 
   const handleSelectLanguage = (language) => {
     setSelectedLanguage(language);
-    console.log(selectedLanguage);
     onSelectLanguage(language);
   };
 
   const handleSelectLevel = (level) => {
     setSelectedLevel(level);
-    console.log(selectedLevel);
     onSelectLevel(level);
   };
 
   const handleSelectPrice = (price) => {
     const priceValue = parseFloat(price);
     setSelectedPrice(priceValue);
-    console.log(selectedPrice);
     onSelectPrice(priceValue);
   };
 

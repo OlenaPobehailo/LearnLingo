@@ -11,7 +11,6 @@ import {
 
 const AuthButtons = ({ openModal, logout }) => {
   const [user, loading] = useAuthState(auth);
-  // console.log(user);
 
   if (loading) return null;
 

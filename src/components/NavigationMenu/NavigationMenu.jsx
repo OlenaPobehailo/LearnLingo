@@ -5,7 +5,6 @@ import { auth } from "../../../firebase-config";
 
 const NavigationMenu = () => {
   const [user] = useAuthState(auth);
-  // console.log(user);
 
   return (
     <NavMenu>
