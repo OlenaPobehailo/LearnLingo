@@ -3,10 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Card from "../components/Card";
 import { auth } from "../../firebase-config";
 import { StyledCommonWrapper } from "../styles/CommonStyled";
-import {
-  TeacherPageWrapper,
-  TeachersList,
-} from "./Page.styled";
+import { TeacherPageWrapper, TeachersList } from "./Page.styled";
 
 const FavoritesPage = () => {
   const [user, setUser] = useState({});
@@ -14,33 +11,36 @@ const FavoritesPage = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      setUser(currentUser || {});
     });
   }, []);
 
-  // console.log(user);
+  console.log(user);
+  console.log(user.uid);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavoriteTeachers(favorites);
-  }, []);
-
+    if (user && user.uid) {
+      const userId = user.uid;
+      const favorites = JSON.parse(localStorage.getItem(userId)) || [];
+      setFavoriteTeachers(favorites);
+    }
+  }, [user]);
 
   console.log("Favorite Teachers:", favoriteTeachers);
 
   return (
     <StyledCommonWrapper>
       {user ? (
-          <TeacherPageWrapper>
-            <TeachersList>
-              {favoriteTeachers &&
-                favoriteTeachers.map((teacher, index) => (
-                  <div key={index}>
-                    <Card teacher={teacher} />
-                  </div>
-                ))}
-            </TeachersList>
-          </TeacherPageWrapper>
+        <TeacherPageWrapper>
+          <TeachersList>
+            {favoriteTeachers &&
+              favoriteTeachers.map((teacher, index) => (
+                <div key={index}>
+                  <Card teacher={teacher} />
+                </div>
+              ))}
+          </TeachersList>
+        </TeacherPageWrapper>
       ) : (
         <p>Please log in to view this content</p>
       )}
