@@ -1,5 +1,5 @@
-import { PropTypes } from "prop-types";
 import { useState } from "react";
+import { PropTypes } from "prop-types";
 import CustomSelect from "../../components/CustomSelect";
 import {
   FilterWrapper,

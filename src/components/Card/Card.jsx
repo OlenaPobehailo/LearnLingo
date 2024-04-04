@@ -1,4 +1,9 @@
+import { useState } from "react";
 import { PropTypes } from "prop-types";
+import Review from "./Review";
+import CardHeader from "./CardHeader";
+import Modal from "../../components/Modal";
+import BookTrialLesson from "../../components/BookTrialLesson";
 import {
   Avatar,
   AvatarWrapper,
@@ -15,12 +20,6 @@ import {
   TeacherInfo,
   TeacherInfoWrapper,
 } from "./Card.styled";
-
-import { useState } from "react";
-import Review from "./Review";
-import CardHeader from "./CardHeader";
-import Modal from "../../components/Modal";
-import BookTrialLesson from "../../components/BookTrialLesson";
 
 const Card = ({ teacher }) => {
   const [showMore, setShowMore] = useState(false);
@@ -39,7 +38,6 @@ const Card = ({ teacher }) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
 
   return (
     <>

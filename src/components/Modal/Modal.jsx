@@ -1,8 +1,7 @@
 import ReactDOM from "react-dom";
-
+import { useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import { CloseButton, ModalContent, ModalOverlay } from "./Modal.styled";
-import { useCallback, useEffect } from "react";
 
 const rootModal = document.querySelector("#modal");
 

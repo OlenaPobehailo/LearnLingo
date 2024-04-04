@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { NavMenu } from "./NavigationMenu.styled";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase-config";
+import { NavMenu } from "./NavigationMenu.styled";
 
 const NavigationMenu = () => {
   const [user] = useAuthState(auth);

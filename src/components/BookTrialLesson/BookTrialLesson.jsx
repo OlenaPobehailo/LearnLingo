@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Formik, Form } from "formik";
 import { PropTypes } from "prop-types";
+import { validationBookSchema } from "../../utils/validationSchema";
 import {
   Avatar,
   Input,
@@ -17,7 +18,6 @@ import {
   Text,
   Title,
 } from "./BookTrialLesson.styled";
-import { validationBookSchema } from "../../utils/validationSchema";
 
 const BookTrialLesson = ({ teacher, onCloseModal }) => {
   const [selectedCategory, setSelectedCategory] = useState("");

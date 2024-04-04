@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { StyledHeader } from "./Header.styled";
-import Modal from "../Modal/Modal";
+import { toast } from "react-toastify";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
-  // onAuthStateChanged,
 } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase-config";
+import Modal from "../Modal/Modal";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import AuthForm from "../AuthForm/AuthForm";
 import Logo from "../Logo/Logo";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
 import {
   validationLoginSchema,
   validationRegisterSchema,
 } from "../../utils/validationSchema";
-import { toast } from "react-toastify";
+import { StyledHeader } from "./Header.styled";
 
 const registrationForm = {
   title: "Registration",
