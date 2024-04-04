@@ -20,6 +20,7 @@ import {
   validationLoginSchema,
   validationRegisterSchema,
 } from "../../utils/validationSchema";
+import { toast } from "react-toastify";
 
 const registrationForm = {
   title: "Registration",
@@ -73,6 +74,18 @@ const Header = () => {
       console.log(user);
     } catch (error) {
       console.log(error.message);
+
+      if (error.code == "auth/email-already-in-use") {
+        toast.error("Email is already in use", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
@@ -84,6 +97,18 @@ const Header = () => {
       // console.log(user);
     } catch (error) {
       console.log(error.message);
+
+      if (error.code == "auth/invalid-credential") {
+        toast.error("Invalid email or password", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
