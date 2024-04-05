@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
@@ -79,5 +80,29 @@ export const LoadMoreButton = styled.button`
   &:hover,
   &:focus {
     background-color: #ffdc86;
+  }
+`;
+
+export const NoFavoriteTeachers = styled.p`
+  font-family: var(--regular);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: #121417;
+  margin-top: 20px;
+  text-align: center;
+`;
+
+export const StyledLink = styled(Link)`
+  font-family: var(--regular);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: #121417;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #f4c550;
   }
 `;

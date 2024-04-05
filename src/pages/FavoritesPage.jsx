@@ -3,7 +3,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import Card from "../components/Card";
 import { auth } from "../../firebase-config";
 import { GreyWrapper, StyledCommonWrapper } from "../styles/CommonStyled";
-import { FavoritePageWrapper, TeachersList } from "./Page.styled";
+import {
+  FavoritePageWrapper,
+  NoFavoriteTeachers,
+  StyledLink,
+  TeachersList,
+} from "./Page.styled";
 
 const FavoritesPage = () => {
   const [user, setUser] = useState({});
@@ -28,14 +33,20 @@ const FavoritesPage = () => {
       <StyledCommonWrapper>
         {user ? (
           <FavoritePageWrapper>
-            <TeachersList>
-              {favoriteTeachers &&
-                favoriteTeachers.map((teacher, index) => (
+            {favoriteTeachers.length > 0 ? (
+              <TeachersList>
+                {favoriteTeachers.map((teacher, index) => (
                   <div key={index}>
                     <Card teacher={teacher} />
                   </div>
                 ))}
-            </TeachersList>
+              </TeachersList>
+            ) : (
+              <NoFavoriteTeachers>
+                No favorite teachers found.{" "}
+                <StyledLink to="/teachers">Add</StyledLink> some favorites!
+              </NoFavoriteTeachers>
+            )}
           </FavoritePageWrapper>
         ) : (
           <p>Please log in to view this content</p>
