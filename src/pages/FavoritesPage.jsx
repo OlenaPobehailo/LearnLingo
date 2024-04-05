@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Card from "../components/Card";
 import { auth } from "../../firebase-config";
 import { StyledCommonWrapper } from "../styles/CommonStyled";
-import { TeacherPageWrapper, TeachersList } from "./Page.styled";
+import { FavoritePageWrapper, TeachersList } from "./Page.styled";
 
 const FavoritesPage = () => {
   const [user, setUser] = useState({});
@@ -26,7 +26,7 @@ const FavoritesPage = () => {
   return (
     <StyledCommonWrapper>
       {user ? (
-        <TeacherPageWrapper>
+        <FavoritePageWrapper>
           <TeachersList>
             {favoriteTeachers &&
               favoriteTeachers.map((teacher, index) => (
@@ -35,7 +35,7 @@ const FavoritesPage = () => {
                 </div>
               ))}
           </TeachersList>
-        </TeacherPageWrapper>
+        </FavoritePageWrapper>
       ) : (
         <p>Please log in to view this content</p>
       )}

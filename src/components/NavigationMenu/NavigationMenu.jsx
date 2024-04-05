@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase-config";
-import { NavMenu } from "./NavigationMenu.styled";
+import { NavMenu, StyledNavLink } from "./NavigationMenu.styled";
 
 const NavigationMenu = () => {
   const [user] = useAuthState(auth);
@@ -9,14 +8,14 @@ const NavigationMenu = () => {
   return (
     <NavMenu>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <StyledNavLink to="/">Home</StyledNavLink>
       </li>
       <li>
-        <NavLink to="/teachers">Teachers</NavLink>
+        <StyledNavLink to="/teachers">Teachers</StyledNavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <StyledNavLink to="/favorites">Favorites</StyledNavLink>
         </li>
       )}
     </NavMenu>

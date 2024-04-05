@@ -11,9 +11,13 @@ export const PageWrapper = styled.div`
 `;
 
 export const TeacherPageWrapper = styled.div`
-background: #f8f8f8;
+  background: #f8f8f8;
+`;
 
-`
+export const FavoritePageWrapper = styled.div`
+  padding-top: 96px;
+  background: #f8f8f8;
+`;
 
 export const TeachersList = styled.ul`
   display: flex;
