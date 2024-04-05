@@ -19,6 +19,36 @@ export const FavoritePageWrapper = styled.div`
   background: #f8f8f8;
 `;
 
+export const NotFoundWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+`;
+
+export const NotFoundTitle = styled.h1`
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #121417;
+`;
+
+export const NotFoundText = styled.p`
+  font-size: 1.5rem;
+  color: #121417;
+`;
+
+export const NotFoundLink = styled.a`
+  color: #121417;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: #f4c550;
+  }
+`;
+
 export const TeachersList = styled.ul`
   display: flex;
   flex-direction: column;

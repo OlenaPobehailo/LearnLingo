@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import Card from "../components/Card";
 import { auth } from "../../firebase-config";
-import { StyledCommonWrapper } from "../styles/CommonStyled";
+import { GreyWrapper, StyledCommonWrapper } from "../styles/CommonStyled";
 import { FavoritePageWrapper, TeachersList } from "./Page.styled";
 
 const FavoritesPage = () => {
@@ -24,22 +24,24 @@ const FavoritesPage = () => {
   }, [user]);
 
   return (
-    <StyledCommonWrapper>
-      {user ? (
-        <FavoritePageWrapper>
-          <TeachersList>
-            {favoriteTeachers &&
-              favoriteTeachers.map((teacher, index) => (
-                <div key={index}>
-                  <Card teacher={teacher} />
-                </div>
-              ))}
-          </TeachersList>
-        </FavoritePageWrapper>
-      ) : (
-        <p>Please log in to view this content</p>
-      )}
-    </StyledCommonWrapper>
+    <GreyWrapper>
+      <StyledCommonWrapper>
+        {user ? (
+          <FavoritePageWrapper>
+            <TeachersList>
+              {favoriteTeachers &&
+                favoriteTeachers.map((teacher, index) => (
+                  <div key={index}>
+                    <Card teacher={teacher} />
+                  </div>
+                ))}
+            </TeachersList>
+          </FavoritePageWrapper>
+        ) : (
+          <p>Please log in to view this content</p>
+        )}
+      </StyledCommonWrapper>
+    </GreyWrapper>
   );
 };
 
