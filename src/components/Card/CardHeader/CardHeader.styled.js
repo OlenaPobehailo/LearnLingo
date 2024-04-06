@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import HeartIcon from "../../../assets/icons/heart.svg?react";
 
 export const Wrapper = styled.div`
   @media screen and (min-width: 1440px) {
@@ -67,11 +68,12 @@ export const Info = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Heart = styled.svg`
+export const StyledHeartIcon = styled(HeartIcon)`
   ${(props) =>
     props.isFavorite &&
     css`
-      fill: red;
+      fill: "#F4C550";
+      stroke: "#F4C550";
     `}
 `;
 

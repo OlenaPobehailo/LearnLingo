@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
+import ChevronIcon from "../../assets/icons/chevron-down.svg?react";
 import {
   OptionItem,
   OptionsList,
@@ -25,29 +26,12 @@ const CustomSelect = ({ options, onSelect, placeholder }) => {
     <SelectWrapper>
       <SelectButton onClick={toggleOptions}>
         {selectedOption ? selectedOption : placeholder || "Select"}
-        <svg
-          width="10"
-          height="6"
-          viewBox="0 0 10 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1 1L5 5L9 1"
-            stroke="#333"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <ChevronIcon />
       </SelectButton>
       {isOpen && (
         <OptionsList>
           {options.map((option) => (
-            <OptionItem
-              key={option}
-              onClick={() => handleSelectOption(option)}
-            >
+            <OptionItem key={option} onClick={() => handleSelectOption(option)}>
               {option}
             </OptionItem>
           ))}
