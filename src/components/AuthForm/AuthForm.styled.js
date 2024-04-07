@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 import styled from "styled-components";
+import EyeIcon from "../../assets/icons/eye-off.svg?react";
 
 export const Title = styled.h2`
   margin-bottom: 16px;
@@ -34,15 +35,10 @@ export const StyledField = styled(Field)`
   display: block;
   width: 100%;
   height: 54px;
-  margin-bottom: 18px;
   padding: 16px 18px;
 
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
-
-  &:last-child {
-    margin-bottom: 40px;
-  }
 
   &::placeholder {
     color: #121417;
@@ -52,6 +48,26 @@ export const StyledField = styled(Field)`
     line-height: 1.375;
   }
 `;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  margin-bottom: 18px;
+
+  &:last-child {
+    margin-bottom: 40px;
+  }
+`;
+
+export const StyledEyeIcon = styled(EyeIcon)`
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  opacity: ${(props) => (props.isPasswordVisible ? 1 : 0.5)};
+`;
+
 export const Button = styled.button`
   display: flex;
   align-items: center;

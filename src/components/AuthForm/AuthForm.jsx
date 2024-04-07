@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 import { Formik, Form } from "formik";
+
 import {
   Button,
+  InputWrapper,
   StyledErrorMessage,
+  StyledEyeIcon,
   StyledField,
   Text,
   Title,
 } from "./AuthForm.styled";
+import { useState } from "react";
 
 const initialValues = {
   name: "",
@@ -23,6 +27,12 @@ const AuthForm = ({
   validationSchema,
   onClose,
 }) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible((prev) => !prev);
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -40,13 +50,24 @@ const AuthForm = ({
 
           {fields.map((field) => (
             <div key={field.name}>
-              <StyledField
-                type={field.type}
-                id={field.name}
-                name={field.name}
-                placeholder={field.placeholder}
-                aria-label={field.label}
-              />
+              <InputWrapper>
+                <StyledField
+                  type={
+                    field.type === "password" && isPasswordVisible
+                      ? "text"
+                      : field.type
+                  }
+                  id={field.name}
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  aria-label={field.label}
+                />
+                {field.type === "password" && (
+                  <div onClick={togglePasswordVisibility}>
+                    <StyledEyeIcon isPasswordVisible={isPasswordVisible.toString()} />
+                  </div>
+                )}
+              </InputWrapper>
               <StyledErrorMessage name={field.name} component="div" />
             </div>
           ))}
