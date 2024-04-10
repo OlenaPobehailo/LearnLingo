@@ -28,8 +28,12 @@ Authenticated users can add teachers to their favorites list. The Favorites page
 
 ## Authentication and Database
 
-The application features user authentication functionalities, including registration, login, user profile management, and logout. Firebase Realtime Database is utilized to store and retrieve teacher data.
+The application features user authentication functionalities, including registration, login, and logout. Firebase Realtime Database is utilized to store and retrieve teacher data.
 
 ## Routing
 
 React Router is used for routing between different pages of the application, providing a seamless user experience.
+
+## <a href="https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?type=design&node-id=0-1&mode=design&t=0dTxpu1mih3xDN9u-0"> Design</a>
+
+## <a href="https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit">Technical Specifications</a>
