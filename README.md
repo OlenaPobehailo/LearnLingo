@@ -34,6 +34,6 @@ The application features user authentication functionalities, including registra
 
 React Router is used for routing between different pages of the application, providing a seamless user experience.
 
-## <a href="https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?type=design&node-id=0-1&mode=design&t=0dTxpu1mih3xDN9u-0"> Design</a>
+## <a href="https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?type=design&node-id=0-1&mode=design&t=0dTxpu1mih3xDN9u-0" target="_blank"> Design</a>
 
-## <a href="https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit">Technical Specifications</a>
+## <a href="https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit" target="_blank">Technical Specifications</a>
