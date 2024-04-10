@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const SelectWrapper = styled.div`
   position: relative;
-  /* min-width: 200px; */
   width: 100%;
 `;
 
@@ -17,7 +16,7 @@ export const SelectButton = styled.div`
   height: 48px;
 
   background-color: #fff;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -45,9 +44,11 @@ export const OptionItem = styled.div`
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-  color: rgba(18, 20, 23, 0.2);
+  color: ${(props) => props.theme.colors.text.gray};
+  transition: color 0.3s ease;
+
 
   &:hover {
-    color: #121417;
+    color: ${(props) => props.theme.colors.text.primary};
   }
 `;

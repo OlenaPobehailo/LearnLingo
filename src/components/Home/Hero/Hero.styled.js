@@ -32,7 +32,7 @@ export const Main = styled.div`
 export const Title = styled.h1`
   margin-bottom: 16px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -71,7 +71,7 @@ export const Title = styled.h1`
 export const Text = styled.p`
   margin-bottom: 32px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--regular);
   font-size: 16px;
@@ -99,8 +99,8 @@ export const StyledLink = styled(Link)`
   width: 267px;
   height: 60px;
 
-  background: #f4c550;
-  color: #121417;
+  background-color: ${(props) => props.theme.colors.accent.primary};
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--bold);
   font-size: 18px;
@@ -109,7 +109,7 @@ export const StyledLink = styled(Link)`
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 export const ImageWrapper = styled.div`

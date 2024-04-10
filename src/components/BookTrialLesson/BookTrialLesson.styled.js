@@ -8,7 +8,7 @@ export const Title = styled.h2`
   font-size: 24px;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 12px;
@@ -73,7 +73,7 @@ export const Subtitle = styled.p`
 `;
 
 export const TeacherName = styled.p`
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -84,7 +84,7 @@ export const TeacherName = styled.p`
 export const Question = styled.p`
   margin-bottom: 8px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -121,7 +121,7 @@ export const RadioLabel = styled.label`
   align-items: center;
   margin-bottom: 8px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--regular);
   font-weight: 400;
@@ -161,14 +161,14 @@ export const RadioInput = styled.input`
   margin-right: 8px;
 
   &:checked {
-    border: 3px solid #f4c550;
+    border: 3px solid ${(props) => props.theme.colors.accent.primary};
   }
 
   &:checked::after {
     content: "";
     width: 8px;
     height: 8px;
-    background-color: #f4c550;
+    background-color: ${(props) => props.theme.colors.accent.primary};
     border-radius: 50%;
     display: block;
   }
@@ -224,8 +224,8 @@ export const SubmitButton = styled.button`
   width: 100%;
   height: 60px;
 
-  background-color: #f4c550;
-  color: #121417;
+  background-color: ${(props) => props.theme.colors.accent.primary};
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--bold);
   font-weight: 700;
@@ -236,7 +236,7 @@ export const SubmitButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 

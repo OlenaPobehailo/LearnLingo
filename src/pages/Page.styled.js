@@ -12,12 +12,12 @@ export const PageWrapper = styled.div`
 `;
 
 export const TeacherPageWrapper = styled.div`
-  background: #f8f8f8;
+  background-color: ${(props) => props.theme.colors.background.secondary};
 `;
 
 export const FavoritePageWrapper = styled.div`
   padding-top: 96px;
-  background: #f8f8f8;
+  background-color: ${(props) => props.theme.colors.background.secondary};
 `;
 
 export const NotFoundWrapper = styled.div`
@@ -32,21 +32,22 @@ export const NotFoundWrapper = styled.div`
 export const NotFoundTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 `;
 
 export const NotFoundText = styled.p`
   font-size: 1.5rem;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 `;
 
 export const NotFoundLink = styled.a`
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: #f4c550;
+    color: ${(props) => props.theme.colors.accent.primary};
   }
 `;
 
@@ -69,17 +70,18 @@ export const LoadMoreButton = styled.button`
   border-radius: 12px;
   padding: 16px 48px;
 
-  background: #f4c550;
-  color: #121417;
+  background-color: ${(props) => props.theme.colors.accent.primary};
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--bold);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.56;
+  transition: background-color 0.3s ease;
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 
@@ -88,7 +90,7 @@ export const NoFavoriteTeachers = styled.p`
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.25;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   margin-top: 20px;
   text-align: center;
 `;
@@ -98,11 +100,12 @@ export const StyledLink = styled(Link)`
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.25;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   text-decoration: underline;
+  transition: color 0.3s ease;
 
   &:hover,
   &:focus {
-    color: #f4c550;
+    color: ${(props) => props.theme.colors.accent.primary};
   }
 `;

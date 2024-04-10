@@ -4,7 +4,7 @@ export const CardWrapper = styled.div`
   border-radius: 24px;
   padding: 12px;
 
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.colors.background.primary};
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -31,8 +31,6 @@ export const Avatar = styled.img`
 `;
 
 export const RightPart = styled.div`
-  /* flex-grow: 1; */
-
   @media screen and (min-width: 768px) {
   }
 
@@ -43,7 +41,6 @@ export const RightPart = styled.div`
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  /* width: 100%; */
 
   margin-bottom: 8px;
 
@@ -68,9 +65,9 @@ export const Item = styled.div`
   gap: 8px;
   padding-left: 16px;
   padding-right: 16px;
-  border-right: 2px solid rgba(18, 20, 23, 0.2);
+  border-right: 2px solid ${(props) => props.theme.colors.text.gray};
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -86,7 +83,7 @@ export const Item = styled.div`
 export const Teacher = styled.p`
   margin-bottom: 32px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -110,7 +107,7 @@ export const TeacherInfo = styled.div`
   white-space: "nowrap";
 
   & span {
-    color: #121417;
+    color: ${(props) => props.theme.colors.text.primary};
   }
 `;
 
@@ -122,7 +119,7 @@ export const ReadMoreButton = styled.button`
   margin-bottom: 32px;
 
   background-color: transparent;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   border: none;
 
   font-family: var(--medium);
@@ -137,7 +134,7 @@ export const Experience = styled.p`
   margin-bottom: 32px;
 
   font-family: var(--regular);
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -153,8 +150,8 @@ export const BookLesson = styled.button`
   min-width: 232px;
   height: 60px;
 
-  background: #f4c550;
-  color: #121417;
+  background-color: ${(props) => props.theme.colors.accent.primary};
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--bold);
   font-weight: 700;
@@ -165,18 +162,13 @@ export const BookLesson = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 
 export const Reviews = styled.ul`
   margin-bottom: 32px;
 `;
-
-// export const Review = styled.li`
-//   margin-bottom: 32px;
-
-// `;
 
 export const Levels = styled.ul`
   display: flex;
@@ -190,11 +182,11 @@ export const Levels = styled.ul`
 `;
 
 export const Level = styled.li`
-  border: 1px solid rgba(18, 20, 23, 0.2);
+  border: 1px solid ${(props) => props.theme.colors.text.gray};
   border-radius: 35px;
   padding: 8px 12px;
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -202,7 +194,7 @@ export const Level = styled.li`
   line-height: 1.143;
 
   &:first-child {
-    background: #f4c550;
-    border: 1px solid #f4c550;
+    background-color: ${(props) => props.theme.colors.accent.primary};
+    border: 1px solid ${(props) => props.theme.colors.accent.primary};
   }
 `;

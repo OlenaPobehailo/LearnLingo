@@ -9,7 +9,7 @@ export const Title = styled.h2`
   font-size: 32px;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
@@ -41,7 +41,7 @@ export const StyledField = styled(Field)`
   border-radius: 12px;
 
   &::placeholder {
-    color: #121417;
+    color: ${(props) => props.theme.colors.text.primary};
 
     font-family: var(--regular);
     font-size: 16px;
@@ -64,8 +64,6 @@ export const StyledEyeIcon = styled(EyeIcon)`
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-
-  opacity: ${(props) => (props.isPasswordVisible ? 1 : 0.5)};
 `;
 
 export const Button = styled.button`
@@ -78,17 +76,22 @@ export const Button = styled.button`
   padding: 16px;
   border-radius: 12px;
 
-  background: #f4c550;
+  background-color: ${(props) => props.theme.colors.accent.primary};
   transition: background-color 0.3s ease;
+
+  font-family: var(--bold);
+  font-size: 18px;
+  line-height: 1.56;
+  color: ${(props) => props.theme.colors.text.primary};
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
-  color: #f4c550;
+  color: ${(props) => props.theme.colors.accent.primary};
   position: relative;
   top: -18px;
 `;

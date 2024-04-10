@@ -24,15 +24,17 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
+  transition: color 0.3s ease;
+
 
   &:hover,
   &:focus {
-    color: #f4c550;
+    color: ${(props) => props.theme.colors.accent.primary};
   }
 
   &.active {
     font-weight: bold;
-    color: #f4c550;
+    color: ${(props) => props.theme.colors.accent.primary};
   }
 `;

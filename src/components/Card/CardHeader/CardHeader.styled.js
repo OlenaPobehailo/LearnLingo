@@ -24,9 +24,9 @@ export const Item = styled.div`
   gap: 4px;
   padding-left: 8px;
   padding-right: 8px;
-  border-right: 2px solid rgba(18, 20, 23, 0.2);
+  border-right: 2px solid ${(props) => props.theme.colors.text.gray};
 
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;

@@ -64,7 +64,7 @@ const AuthForm = ({
                 />
                 {field.type === "password" && (
                   <div onClick={togglePasswordVisibility}>
-                    <StyledEyeIcon isPasswordVisible={isPasswordVisible.toString()} />
+                    <StyledEyeIcon />
                   </div>
                 )}
               </InputWrapper>

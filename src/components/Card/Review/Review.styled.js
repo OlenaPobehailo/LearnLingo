@@ -25,7 +25,7 @@ export const ReviewerName = styled.div`
 export const ReviewerRating = styled.p`
   display: flex;
   gap: 8px;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;
@@ -34,7 +34,7 @@ export const ReviewerRating = styled.p`
 `;
 
 export const ReviewComment = styled.p`
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-family: var(--medium);
   font-weight: 500;

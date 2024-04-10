@@ -9,7 +9,7 @@ export const StyledInfo = styled.ul`
   gap: 30px;
   border-radius: 30px;
 
-  border: 2px dashed #f4c550;
+  border: 2px dashed ${(props) => props.theme.colors.accent.primary};
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -29,7 +29,7 @@ export const Item = styled.li`
 `;
 
 export const Value = styled.p`
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
 
   font-size: 16px;
   font-family: var(--medium);

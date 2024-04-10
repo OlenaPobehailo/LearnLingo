@@ -20,6 +20,11 @@ export const Register = styled.button`
 
   font-family: var(--bold);
   line-height: 1.25;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.accent.primary};
+  }
 
   @media screen and (min-width: 768px) {
     width: fit-content;
@@ -45,7 +50,12 @@ export const Login = styled.button`
   font-family: var(--bold);
   line-height: 1.25;
   background: transparent;
-  color: #121417;
+  color: ${(props) => props.theme.colors.text.primary};
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.accent.primary};
+  }
 `;
 
 export const Logout = styled.button`
@@ -56,7 +66,7 @@ export const Logout = styled.button`
 
   border-radius: 12px;
 
-  background: #f4c550;
+  background-color: ${(props) => props.theme.colors.accent.primary};
   color: #121417;
 
   font-family: var(--bold);
@@ -77,7 +87,7 @@ export const Logout = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: ${(props) => props.theme.colors.accent.secondary};
   }
 `;
 

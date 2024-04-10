@@ -1,25 +1,19 @@
 const theme = {
   colors: {
     background: {
-      primary: "",
-      secondary: "",
+      primary: "#ffffff",
+      secondary: "#f8f8f8",
     },
 
     text: {
-      primary: "",
-      accent: "",
-      gray: "",
+      primary: "#121417",
+      gray: "rgba(18, 20, 23, 0.2)",
     },
 
     accent: {
-      primary: "",
-      secondary: "",
+      primary: "#f4c550",
+      secondary: "#ffdc86",
     },
-  },
-
-  fonts: {
-    main: "",
-    secondary: "",
   },
 };
 

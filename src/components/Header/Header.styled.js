@@ -34,6 +34,6 @@ export const StyledHeader = styled.div`
 
   a {
     line-height: 1.25;
-    color: #121417;
+    color: ${(props) => props.theme.colors.text.primary};
   }
 `;

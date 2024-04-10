@@ -27,7 +27,7 @@ const BookTrialLesson = ({ teacher, onCloseModal }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    console.log("Form submitted with values: ", values);
     onCloseModal();
     resetForm();
   };
