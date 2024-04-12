@@ -10,6 +10,7 @@ import {
 } from "./Filter.styled";
 
 const languages = [
+  "All",
   "French",
   "English",
   "German",
@@ -23,6 +24,7 @@ const languages = [
 ];
 
 const levels = [
+  "All",
   "A1 Beginner",
   "A2 Elementary",
   "B1 Intermediate",
@@ -31,27 +33,26 @@ const levels = [
   "C2 Proficient",
 ];
 
-const prices = ["10", "20", "30", "40"];
+const prices = ["All", "10", "20", "30", "40"];
 
 const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
-  const [, setSelectedLanguage] = useState(null);
-  const [, setSelectedLevel] = useState(null);
-  const [, setSelectedPrice] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState("All");
+  const [selectedLevel, setSelectedLevel] = useState("All");
+  const [selectedPrice, setSelectedPrice] = useState("All");
 
   const handleSelectLanguage = (language) => {
     setSelectedLanguage(language);
-    onSelectLanguage(language);
+    onSelectLanguage(language === "All" ? null : language);
   };
 
   const handleSelectLevel = (level) => {
     setSelectedLevel(level);
-    onSelectLevel(level);
+    onSelectLevel(level === "All" ? null : level);
   };
 
   const handleSelectPrice = (price) => {
-    const priceValue = parseFloat(price);
-    setSelectedPrice(priceValue);
-    onSelectPrice(priceValue);
+    setSelectedPrice(price);
+    onSelectPrice(price === "All" ? null : parseFloat(price));
   };
 
   return (
@@ -60,6 +61,7 @@ const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
         <Title>Languages</Title>
         <CustomSelect
           options={languages}
+          selected={selectedLanguage}
           onSelect={handleSelectLanguage}
           placeholder="Languages"
         />
@@ -70,6 +72,7 @@ const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
         <CustomSelect
           options={levels}
           onSelect={handleSelectLevel}
+          selected={selectedLevel}
           placeholder="Levels"
         />
       </Levels>
@@ -79,6 +82,7 @@ const Filter = ({ onSelectLanguage, onSelectLevel, onSelectPrice }) => {
         <CustomSelect
           options={prices}
           onSelect={handleSelectPrice}
+          selected={selectedPrice}
           placeholder="Price"
         />
       </Price>

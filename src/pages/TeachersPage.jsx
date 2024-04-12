@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { get, getDatabase, ref } from "firebase/database";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
-import {
-  LoadMoreButton,
-  TeacherPageWrapper,
-  TeachersList,
-} from "./Page.styled";
+import { LoadMoreButton, NoResultsFound, TeachersList } from "./Page.styled";
 import { GreyWrapper, StyledCommonWrapper } from "../styles/CommonStyled";
 
 const TeachersPage = () => {
@@ -69,24 +65,25 @@ const TeachersPage = () => {
   return (
     <GreyWrapper>
       <StyledCommonWrapper>
-        <TeacherPageWrapper>
-          <Filter
-            onSelectLanguage={handleSelectLanguage}
-            onSelectLevel={handleSelectLevel}
-            onSelectPrice={handleSelectPrice}
-          />
-          <TeachersList>
-            {teachers &&
-              teachers.map((teacher, index) => (
-                <div key={index}>
-                  <Card teacher={teacher} />
-                </div>
-              ))}
-          </TeachersList>
-          {totalTeachers > visibleTeachers && (
-            <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+        <Filter
+          onSelectLanguage={handleSelectLanguage}
+          onSelectLevel={handleSelectLevel}
+          onSelectPrice={handleSelectPrice}
+        />
+        <TeachersList>
+          {teachers && teachers.length > 0 ? (
+            teachers.map((teacher, index) => (
+              <div key={index}>
+                <Card teacher={teacher} />
+              </div>
+            ))
+          ) : (
+            <NoResultsFound>No results found for your query</NoResultsFound>
           )}
-        </TeacherPageWrapper>
+        </TeachersList>
+        {totalTeachers > visibleTeachers && teachers.length && (
+          <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+        )}
       </StyledCommonWrapper>
     </GreyWrapper>
   );

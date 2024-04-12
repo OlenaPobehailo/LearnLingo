@@ -27,5 +27,6 @@ export const StyledCommonWrapper = styled.div`
 `;
 
 export const GreyWrapper = styled.div`
+  height: 85vh;
   background-color: ${(props) => props.theme.colors.background.secondary};
 `;

@@ -11,13 +11,8 @@ export const PageWrapper = styled.div`
   }
 `;
 
-export const TeacherPageWrapper = styled.div`
-  background-color: ${(props) => props.theme.colors.background.secondary};
-`;
-
 export const FavoritePageWrapper = styled.div`
   padding-top: 96px;
-  background-color: ${(props) => props.theme.colors.background.secondary};
 `;
 
 export const NotFoundWrapper = styled.div`
@@ -92,6 +87,27 @@ export const NoFavoriteTeachers = styled.p`
   line-height: 1.25;
   color: ${(props) => props.theme.colors.text.primary};
   margin-top: 20px;
+  text-align: center;
+`;
+
+export const NoResultsFound = styled.p`
+  font-family: var(--regular);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: ${(props) => props.theme.colors.text.primary};
+  margin-top: 20px;
+  text-align: center;
+`;
+
+export const NotAuthorizedUser = styled.p`
+  font-family: var(--regular);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: ${(props) => props.theme.colors.text.primary};
+  margin-top: 20px;
+  padding-top: 20px;
   text-align: center;
 `;
 

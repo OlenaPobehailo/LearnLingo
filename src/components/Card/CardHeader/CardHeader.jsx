@@ -38,7 +38,7 @@ const CardHeader = ({ teacher }) => {
 
   const handleFavoriteClick = () => {
     if (!user) {
-      toast("Даний функціонал доступний лише для авторизованих користувачів", {
+      toast("This functionality is available only to authorized users", {
         position: "top-right",
         autoClose: false,
         hideProgressBar: false,
