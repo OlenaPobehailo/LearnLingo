@@ -31,8 +31,6 @@ export const GlobalStyles = createGlobalStyle`
 :root {
   font-weight: 400;
 
-  color-scheme: light dark;
-  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +42,6 @@ export const GlobalStyles = createGlobalStyle`
   --italic: 'Roboto-Italic', sans-serif;
 
   --dash-length: 15px;
-
 
 }
  
