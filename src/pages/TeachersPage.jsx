@@ -12,6 +12,7 @@ const TeachersPage = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
+  const [filteredTeachersLength, setFilteredTeachersLength] = useState(null);
 
   useEffect(() => {
     const db = getDatabase();
@@ -36,6 +37,7 @@ const TeachersPage = () => {
 
             return languageFilter && levelFilter && priceFilter;
           });
+          setFilteredTeachersLength(filteredTeachers.length);
           setTeachers(filteredTeachers.slice(0, visibleTeachers));
         } else {
           console.log("No data available");
@@ -62,6 +64,9 @@ const TeachersPage = () => {
     setSelectedPrice(price);
   };
 
+  const removeFromFavorites = () => {
+  };
+
   return (
     <GreyWrapper>
       <StyledCommonWrapper>
@@ -74,16 +79,21 @@ const TeachersPage = () => {
           {teachers && teachers.length > 0 ? (
             teachers.map((teacher, index) => (
               <div key={index}>
-                <Card teacher={teacher} />
+                <Card
+                  teacher={teacher}
+                  removeFromFavorites={removeFromFavorites}
+                />
               </div>
             ))
           ) : (
             <NoResultsFound>No results found for your query</NoResultsFound>
           )}
         </TeachersList>
-        {totalTeachers > visibleTeachers && teachers.length && (
-          <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
-        )}
+        {totalTeachers > visibleTeachers &&
+          teachers.length &&
+          filteredTeachersLength > visibleTeachers && (
+            <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+          )}
       </StyledCommonWrapper>
     </GreyWrapper>
   );

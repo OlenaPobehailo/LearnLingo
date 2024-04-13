@@ -27,6 +27,8 @@ export const StyledCommonWrapper = styled.div`
 `;
 
 export const GreyWrapper = styled.div`
-  height: 85vh;
+
+  min-height: 85vh;
+  padding-bottom: 96px;
   background-color: ${(props) => props.theme.colors.background.secondary};
 `;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Card from "../components/Card";
@@ -42,7 +42,6 @@ const FavoritesPage = () => {
     }
 
     const timer = setTimeout(() => {
-      console.log(user);
       if (!user || !user.uid) {
         navigate("/");
       }
@@ -50,6 +49,17 @@ const FavoritesPage = () => {
 
     return () => clearTimeout(timer);
   }, [isUserLoaded, user, navigate]);
+
+  const removeFromFavorites = (teacherToRemove) => {
+    const updatedFavorites = favoriteTeachers.filter(
+      (teacher) =>
+        teacher.name !== teacherToRemove.name ||
+        teacher.surname !== teacherToRemove.surname
+    );
+    setFavoriteTeachers(updatedFavorites);
+    const userId = user.uid;
+    localStorage.setItem(userId, JSON.stringify(updatedFavorites));
+  };
 
   return (
     <GreyWrapper>
@@ -60,7 +70,10 @@ const FavoritesPage = () => {
               {favoriteTeachers.length > 0 ? (
                 favoriteTeachers.map((teacher, index) => (
                   <div key={index}>
-                    <Card teacher={teacher} />
+                    <Card
+                      teacher={teacher}
+                      removeFromFavorites={removeFromFavorites}
+                    />
                   </div>
                 ))
               ) : (

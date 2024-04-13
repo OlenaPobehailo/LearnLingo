@@ -21,7 +21,7 @@ import {
   TeacherInfoWrapper,
 } from "./Card.styled";
 
-const Card = ({ teacher }) => {
+const Card = ({ teacher, removeFromFavorites }) => {
   const [showMore, setShowMore] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,7 +46,10 @@ const Card = ({ teacher }) => {
           <Avatar src={teacher.avatar_url} alt="" />
         </AvatarWrapper>
         <RightPart>
-          <CardHeader teacher={teacher} />
+          <CardHeader
+            teacher={teacher}
+            removeFromFavorites={removeFromFavorites}
+          />
 
           <Teacher>
             {teacher.name} {teacher.surname}
@@ -112,4 +115,5 @@ export default Card;
 
 Card.propTypes = {
   teacher: PropTypes.object,
+  removeFromFavorites: PropTypes.func,
 };

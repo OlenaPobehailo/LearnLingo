@@ -1,3 +1,7 @@
+import block1Image from "/public/images/hero/block-1.jpg";
+import block2Image from "/public/images/hero/block-2.jpg";
+import block3Image from "/public/images/hero/block-3.jpg";
+
 import {
   Image,
   ImageWrapper,
@@ -23,7 +27,12 @@ const Hero = () => {
         <StyledLink to="/teachers">Get started</StyledLink>
       </Main>
       <ImageWrapper>
-        <Image src="/public/images/hero/block-1.jpg" alt="" />
+        <picture>
+          <source
+            srcSet={`${block1Image} 1x, ${block2Image} 2x, ${block3Image} 3x`}
+          />
+          <Image src={block1Image} alt="hero" />
+        </picture>
       </ImageWrapper>
     </StyledHero>
   );

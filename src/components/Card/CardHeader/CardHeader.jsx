@@ -9,7 +9,7 @@ import StarIcon from "../../../assets/icons/star.svg?react";
 import { FavoriteButton, Info, Item, Text, Wrapper } from "./CardHeader.styled";
 import HeartIcon from "../../../components/HeartIcon/HeartIcon";
 
-const CardHeader = ({ teacher }) => {
+const CardHeader = ({ teacher, removeFromFavorites }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [user] = useAuthState(auth);
 
@@ -63,6 +63,8 @@ const CardHeader = ({ teacher }) => {
       : [...favorites, teacher];
 
     localStorage.setItem(userId, JSON.stringify(updatedFavorites));
+
+    removeFromFavorites(teacher);
   };
 
   return (
@@ -96,4 +98,5 @@ export default CardHeader;
 
 CardHeader.propTypes = {
   teacher: PropTypes.object,
+  removeFromFavorites: PropTypes.func,
 };
